@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>{{ data.message }}</h1>
+<!--<div mat-dialog-content class="flex justify-center align-middle ">
+  <mat-icon>info</mat-icon>
+  <p>Podrás editar el proyecto cuando quieras, hasta que hayas aceptado a un desarrollador para trabajar</p>
+</div>-->
+<div mat-dialog-actions class="flex justify-center gap-5">
+  <button mat-button (click)="onNoClick()">No</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Sí</button>
+</div>

@@ -1,0 +1,149 @@
+<div class="flex justify-center w-full h-full">
+  <mat-card style="margin: 0 50px;height: 700px; width: 1400px; display: flex; justify-content: center">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" style="margin: 10px">
+      <div class="p-3 flex justify-center">
+        <mat-form-field class="w-5/6 h-16">
+          <input matInput placeholder="Titulo del proyecto" formControlName="title">
+        </mat-form-field>
+      </div>
+      <hr>
+      <div class="p-3 flex flex-col">
+        <label for="description">Descripcion</label>
+        <mat-form-field>
+          <textarea id="description" matInput formControlName="description"></textarea>
+        </mat-form-field>
+      </div>
+      <hr>
+      <div class="create-project-content flex justify-around">
+        <div class="flex flex-col justify-center">
+          <div class="flex flex-col">
+            <label for="tipoPagina">Tipo de Proyecto</label>
+            <mat-form-field>
+              <mat-select id="tipoPagina" formControlName="projectType">
+                <mat-option value="LANDING_PAGE">Landing Page</mat-option>
+                <mat-option value="WEB_APPLICATION">Aplicacion web</mat-option>
+                <mat-option value="DESKTOP_APPLICATION">Aplicacion de Escritorio</mat-option>
+                <mat-option value="MOBILE_APPLICATION">Aplicacion Movil</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <hr>
+          <div class="flex flex-col">
+            <h4>Tecnologias</h4>
+            <div class="tecnologias flex justify-around">
+
+              <div class="flex flex-col">
+                <label>Lenguajes</label>
+                <mat-form-field>
+                  <mat-select id="lenguajesProgramacion" style="width: 200px;height: 40px"
+                              (selectionChange)="selectedLanguages.push($event.value)">
+                    @for (language of programmingLanguagesList; track language.id) {
+                      <mat-option (click)="addingLanguages(language.name)"
+                                  [value]="language.name">
+                        {{ language.name }}
+                      </mat-option>
+                    }
+                  </mat-select>
+                </mat-form-field>
+                <div class="flex flex-col justify-center">
+                  <div class="selected">
+                    @for (language of selectedLanguages; track $index) {
+                      <div class="flex flex-row justify-center">
+                        <p>{{ language }}</p>
+                        <mat-icon class="text-red-600 cursor-pointer"
+                                  (click)="removeSelectedLanguage($index, selectedLanguages)">
+                          delete
+                        </mat-icon>
+                      </div>
+                    }
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex flex-col">
+                <label>Frameworks</label>
+                <mat-form-field>
+                  <mat-select id="frameworksProgramacion" style="width: 200px;height: 40px"
+                              (selectionChange)="selectedFrameworks.push($event.value)">
+                    @for (framework of frameworksList; track framework.id) {
+                      <mat-option (click)="addingFrameworks(framework.name)"
+                                  [value]="framework.name">
+                        {{ framework.name }}
+                      </mat-option>
+                    }
+                  </mat-select>
+                </mat-form-field>
+                <div class="flex flex-col justify-between">
+                  <div class="selected">
+                    @for (frameworks of selectedFrameworks; track $index) {
+                      <div class="flex flex-row justify-center">
+                        <p>{{ frameworks }}</p>
+                        <mat-icon class="text-red-600 cursor-pointer"
+                                  (click)="removeSelectedFramework($index, selectedFrameworks)">
+                          delete
+                        </mat-icon>
+                      </div>
+                    }
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col justify-center">
+          <div class="flex flex-col">
+            <label for="presupuesto">Presupuesto</label>
+            <div class="flex flex-wrap justify-around">
+              <mat-form-field style="width: 60%">
+                <!--<textarea id="presupuesto" matInput formControlName="presupuesto"></textarea>-->
+                <input id="presupuesto" matInput placeholder="Presupuesto del proyecto"
+                       type="number" step="0.01" min="0" formControlName="presupuesto">
+              </mat-form-field>
+              <mat-form-field style="width: 30%">
+                <mat-select id="projectCurrency" formControlName="currency">
+                  @for (currency of projectCurrencyList; track currency.id) {
+                    <mat-option [value]="currency.name">
+                      {{ currency.name }}
+                    </mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <hr>
+          <div class="flex flex-col">
+            <label for="procesosYMetologias">Procesos y Metogologias de desarrollo</label>
+            <mat-checkbox id="procesosYMetologias" [formControl]="hideMethodologies" #processCheckbox>
+              Agregar procesos y metodologias por defecto
+            </mat-checkbox>
+            @if (!processCheckbox.checked) {
+              <div class="flex flex-wrap justify-around">
+                <div class="flex flex-col justify-center">
+                  <mat-form-field>
+                    <input matInput placeholder="Titulo del proceso"
+                           formControlName="methodologyName">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <textarea matInput placeholder="Descripcion del proceso"
+                          formControlName="methodologyDescription"></textarea>
+                  </mat-form-field>
+                </div>
+                <div class="content-center">
+                  <button mat-flat-button color="primary" type="button"
+                          (click)="addingMethodology()" class="rounded-full">
+                    +
+                  </button>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button mat-flat-button color="primary" type="submit"
+                class="rounded-full">Publicar Proyecto</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

@@ -1,0 +1,169 @@
+<div class="bg-white h-full flex flex-col justify-center">
+
+  <div class="flex flex-row justify-around items-center">
+    <h1>{{ perfilEnterprise?.companyName }}</h1>
+    <img mat-card-image [src]="perfilEnterprise?.profileImgUrl" alt="Perfil de usuario" class="w-12 h-12">
+    <mat-icon (click)="goToMessage()" class="text-purple-500 cursor-pointer hover:bg-gray-200">message</mat-icon>
+  </div>
+
+  <div class="flex justify-center">
+    <hr class="w-5/6 text-gray-500">
+  </div>
+
+  <div class="company-profile-items-container">
+
+    <div class="w-5/6 ml-auto mr-auto">
+      <div class="flex flex-col">
+        <h2 class="text-gray-500 font-bold">Resumen</h2>
+        <h3>{{ perfilEnterprise?.description }}</h3>
+      </div>
+
+
+      <div class="flex justify-center">
+        <hr class="w-5/6 text-gray-500">
+      </div>
+
+
+      <div class="company-profile-item flex flex-row justify-between items-center">
+        <h2 class="text-gray-500 font-bold">País</h2>
+        <h3>{{ perfilEnterprise?.country }}</h3>
+      </div>
+
+      <div class="flex justify-center">
+        <hr class="w-5/6 text-gray-500">
+      </div>
+
+      <div class="company-profile-item flex flex-row justify-between items-center">
+        <h2 class="text-gray-500 font-bold">RUC</h2>
+        <h3>{{ perfilEnterprise?.ruc }}</h3>
+      </div>
+
+      <div class="flex justify-center">
+        <hr class="w-5/6 text-gray-500">
+      </div>
+
+
+      <div class="company-profile-item flex flex-row justify-between items-center">
+        <h2 class="text-gray-500 font-bold">Telefono</h2>
+        <h3>{{ perfilEnterprise?.phone }}</h3>
+      </div>
+
+
+      <div class="flex justify-center">
+        <hr class="w-5/6 text-gray-500">
+      </div>
+
+
+      <div class="company-profile-item flex flex-row justify-between items-center">
+        <h2 class="text-gray-500 font-bold">Correo</h2>
+        <h3>{{ perfilEnterprise?.email }}</h3>
+      </div>
+
+
+      <div class="flex justify-center">
+        <hr class="w-5/6 text-gray-500">
+      </div>
+
+
+      <div class="company-profile-item flex flex-row justify-between items-center">
+        <h2 class="text-gray-500 font-bold">Sitio Web</h2>
+        <h3>{{ perfilEnterprise?.website }}</h3>
+      </div>
+
+
+      <div class="flex justify-center">
+        <hr class="w-5/6 text-gray-500">
+      </div>
+
+
+      <div class="company-profile-item flex flex-row justify-between items-center">
+        <h2 class="text-gray-500 font-bold">Sector</h2>
+        <h3>{{ perfilEnterprise?.sector }}</h3>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!--
+<div class="container w-full h-full">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{perfilEnterprise?.companyName}}</mat-card-title>
+      <img mat-card-image :src="{{perfilEnterprise?.profileImgUrl}}" alt="Perfil de usuario" class="w-12 h-12">
+      <a routerLink="/app-developer/main/shared/message">
+        <mat-icon class="text-purple-500 hover:bg-gray-200">message</mat-icon>
+      </a>
+    </mat-card-header>
+    <div class="flex justify-center">
+      <hr class="w-5/6 text-gray-500">
+    </div>
+    <mat-card-content>
+      <div class="flex gap-2">
+        <div>
+          <p class="text-gray-500 font-bold">Resumen</p>
+          <p>{{perfilEnterprise?.description}}</p>
+        </div>
+      </div>
+    </mat-card-content>
+    <div class="flex justify-center">
+      <hr class="w-5/6 text-gray-500">
+    </div>
+    <mat-card-content>
+      <div class="flex gap-2 justify-between w-full">
+        <div class="flex justify-between gap-10 w-11/12 mt-3">
+          <p class="text-gray-500 font-bold">País</p>
+          <p>{{perfilEnterprise?.country}}</p>
+        </div>
+      </div>
+    </mat-card-content>
+    <div class="flex justify-center">
+      <hr class="w-5/6 text-gray-500">
+    </div>
+    <mat-card-content>
+      <div class="flex gap-2 justify-between w-full">
+        <div class="flex justify-between w-11/12 mt-3">
+          <p class="text-gray-500 font-bold">Telefono</p>
+          <p>{{perfilEnterprise?.phone}}</p>
+        </div>
+      </div>
+    </mat-card-content>
+    <div class="flex justify-center">
+      <hr class="w-5/6 text-gray-500">
+    </div>
+    <mat-card-content>
+      <div class="flex gap-2 justify-between w-full">
+        <div class="flex justify-between gap-10 w-11/12 mt-3">
+          <p class="text-gray-500 font-bold">Correo</p>
+          <p>{{perfilEnterprise?.email}}</p>
+        </div>
+      </div>
+    </mat-card-content>
+    <div class="flex justify-center">
+      <hr class="w-5/6 text-gray-500">
+    </div>
+    <mat-card-content>
+      <div class="flex gap-2 justify-between w-full">
+        <div class="flex justify-between gap-10 w-11/12 mt-3">
+          <p class="text-gray-500 font-bold">RUC</p>
+          <p>{{perfilEnterprise?.ruc}}</p>
+        </div>
+      </div>
+    </mat-card-content>
+    <div class="flex justify-center">
+      <hr class="w-5/6 text-gray-500">
+    </div>
+    <mat-card-content>
+      <div class="flex gap-2 justify-between w-full">
+        <div class="flex justify-between gap-10 w-11/12 mt-3">
+          <p class="text-gray-500 font-bold">Sector</p>
+          <p>{{perfilEnterprise?.sector}}</p>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+-->

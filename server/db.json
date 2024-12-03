@@ -1,0 +1,387 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "geekit",
+      "password": "geekit",
+      "email": "geekit.pe@gmail.com",
+      "accountType": 0
+    },
+    {
+      "id": "2",
+      "username": "empresa2",
+      "password": "empresa2",
+      "email": "empresa2@upc",
+      "accountType": 0
+    },
+    {
+      "id": 3,
+      "email": "empresa3@gmail.com",
+      "password": "empresa3",
+      "username": "empresa3",
+      "accountType": 0
+    },
+    {
+      "id": "4",
+      "username": "cliente1",
+      "password": "cliente1",
+      "email": "cliente1@upc",
+      "accountType": 1
+    }
+  ],
+  "profiles": [
+    {
+      "id": "1",
+      "username": "Geekit.pe",
+      "email": "geekit.pe@gmail.com",
+      "imageProfile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA3o2AjctAbpo5wyonI6CJN10uejfkoCiXi5uGdxV9lA&s",
+      "accountType": 0,
+      "summary": "Geekit es tu destino para la moda geek. Nos especializamos en ofrecer una selección única de ropa y accesorios para jóvenes apasionados por la cultura pop, los videojuegos, el cine y los cómics. En Geekit, encontrarás prendas que te permiten expresar tu estilo auténtico y tu amor por tus intereses favoritos.",
+      "country": "Peru",
+      "cellphone": "9132851724",
+      "socialRazon": "12412412412414",
+      "website": "https://geekitpe.com",
+      "sector": "Ropa",
+      "projects": [
+        {
+          "id": 1,
+          "name": "Landing Page Geekit",
+          "state": "En proceso",
+          "progress": 50,
+          "deliverables": [
+            {
+              "id": 1,
+              "title": "Documento de Especificacion de Requisitos del Software (SRS)",
+              "description": "Este entregable consistirá en un documento detallado que describe los requisitos funcionales y no funcionales de la Plataforma de Comercio Electrónico Geekit. Incluirá casos de uso, diagramas de flujo, requisitos de usuario, requisitos de sistema y cualquier otra información relevante para guiar el desarrollo del software.",
+              "deadLine": "2024-07-24T00:00:00Z",
+              "status": 2
+            },
+            {
+              "id": 2,
+              "title": "Prototipo Interactivo de la Interfaz de Usuario (UI)",
+              "description": "Se entregará un prototipo interactivo de la interfaz de usuario de la Plataforma de Comercio Electrónico Geekit. Este prototipo permitirá a los stakeholders visualizar y navegar por las diferentes pantallas y funcionalidades de la aplicación, proporcionando una representación visual de cómo se verá y funcionará la plataforma final.",
+              "deadLine": "2024-08-24T00:00:00Z",
+              "status": 1
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Aplicacion Web Geekit",
+          "state": "En busqueda",
+          "deliverables": [],
+          "candidates": [
+            {
+              "name": "Tonito Guido",
+              "description": "Tonito es un desarrollador web con más de 5 años de experiencia en la creación de sitios web y aplicaciones móviles. Apasionado por la tecnología y el diseño, se especializa en el desarrollo frontend y backend, utilizando tecnologías como HTML, CSS, JavaScript, React y Node.js.",
+              "image": "https://vivolabs.es/wp-content/uploads/2022/03/perfil-hombre-vivo.png",
+              "state": "En espera",
+              "link": "https://github.com/Purak189"
+            },
+            {
+              "name": "Fernanda Rodriguez",
+              "description": "Fernanda es un desarrolladora web con más de 3 años de experiencia en la creación de sitios web y aplicaciones móviles. Apasionado por la tecnología y el diseño, se especializa en el desarrollo frontend y backend, utilizando tecnologías como HTML, CSS, JavaScript, React y Node.js.",
+              "image": "https://redbote.com/wp-content/uploads/2023/05/portada-foto-perfil-redes-sociales-consejos.jpg",
+              "state": "En espera",
+              "link": "https://github.com/Purak189"
+            }
+          ],
+          "numCandidates": 2
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "username": "empresa2",
+      "email": "empresa2@upc",
+      "imageProfile": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/2023_Facebook_icon.svg/2048px-2023_Facebook_icon.svg.png",
+      "accountType": 0,
+      "summary": "descripcion de empresa2",
+      "country": "Peru",
+      "cellphone": "9132851724",
+      "socialRazon": "12412412412414",
+      "website": "empresa2.com",
+      "sector": "sector1",
+      "projects": []
+    },
+    {
+      "id": 3,
+      "username": "empresa3",
+      "email": "empresa3@gmail.com",
+      "accountType": 0,
+      "imageProfile": "-",
+      "summary": "Descripcion",
+      "country": "-",
+      "cellphone": "-",
+      "projects": [],
+      "socialRazon": "-",
+      "website": "-",
+      "sector": "-"
+    },
+    {
+      "id": "4",
+      "username": "Jose Rivera",
+      "email": "joseRivera@gmail.com",
+      "imageProfile": "https://www.usbbog.edu.co/wp-content/uploads/2022/09/tecnologia-desarrollo-software-aspirante.png",
+      "accountType": 1,
+      "summary": "Soy egresado de la carrera de Ingeniería de Software",
+      "country": "Peru",
+      "cellphone": "984756321",
+      "socialRazon": "3434343434344",
+      "website": "jose-rivera.com",
+      "sector": "sector1",
+      "projects": []
+    }
+  ],
+  "developers": [
+    {
+      "id": "1",
+      "name": "Luisa Montes de Oca",
+      "description": "Desarrolladora Front-end apasionada por la creación de interfaces de usuario intuitivas y atractivas. Especializada en HTML, CSS y JavaScript, se destaca en la implementación de diseños creativos y responsivos. Luisa siempre busca mejorar la experiencia del usuario y está al tanto de las últimas tendencias en diseño web.",
+      "rating": 4,
+      "profileImage": "https://www.seoptimer.com/storage/images/2014/08/selfie.jpg",
+      "country": "Peru",
+      "cellphone": "9132851724",
+      "email": "luisa.montes@gmail.com",
+      "completedProjects": 2,
+      "skills": "HTML5,CSS, JavaScript, Node.js, Express, MongoDB, MySQL",
+      "repository": [
+        {
+          "title": "Big Cheese Pizza",
+          "urlPage": "https://www.bigcheesepizza.com.pe"
+        },
+        {
+          "title": "Cravings Journal",
+          "urlPage": "https://es.cravingsjournal.com"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Daniel Soto García",
+      "description": "Desarrolladora Front-end apasionada por la creación de interfaces de usuario intuitivas y atractivas. Especializada en HTML, CSS y JavaScript, se destaca en la implementación de diseños creativos y responsivos. Luisa siempre busca mejorar la experiencia del usuario y está al tanto de las últimas tendencias en diseño web.",
+      "rating": 3,
+      "profileImage": "https://www.blogdelfotografo.com/wp-content/uploads/2022/01/retrato-anillo-luz.webp",
+      "country": "Peru",
+      "cellphone": "9132851724",
+      "email": "luisa.montes@gmail.com",
+      "completedProjects": 1,
+      "skills": "HTML5,CSS, JavaScript, Vue.js, C#, NET CORE, SQL Server",
+      "repository": [
+        {
+          "title": "Flyordie Chess",
+          "urlPage": "http://m.flyordie.com/ajedrez/"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Carolina Martínez López",
+      "description": "Desarrolladora Front-end apasionada por la creación de interfaces de usuario intuitivas y atractivas. Especializada en HTML, CSS y JavaScript, se destaca en la implementación de diseños creativos y responsivos. Luisa siempre busca mejorar la experiencia del usuario y está al tanto de las últimas tendencias en diseño web.",
+      "rating": 1,
+      "profileImage": "https://media.istockphoto.com/id/487964213/es/foto/confianza-en-su-belleza.jpg?s=612x612&w=0&k=20&c=3yz5Tstmdt4VXbnY6C891sLrtTqy0_NmD_Clmtmvp6I=",
+      "country": "Peru",
+      "cellphone": "9132851724",
+      "email": "luisa.montes@gmail.com",
+      "completedProjects": 0,
+      "skills": "MongoDB, Express.js, React.js, Node.js, Agile, Scrum",
+      "repository": []
+    },
+    {
+      "id": "4",
+      "name": "Alejandro Torres Navarro",
+      "description": "Desarrolladora Front-end apasionada por la creación de interfaces de usuario intuitivas y atractivas. Especializada en HTML, CSS y JavaScript, se destaca en la implementación de diseños creativos y responsivos. Luisa siempre busca mejorar la experiencia del usuario y está al tanto de las últimas tendencias en diseño web.",
+      "rating": 5,
+      "profileImage": "https://st3.depositphotos.com/9881890/15494/i/450/depositphotos_154945740-stock-photo-happy-caucasian-man.jpg",
+      "country": "Peru",
+      "cellphone": "9132851724",
+      "email": "luisa.montes@gmail.com",
+      "completedProjects": 3,
+      "skills": "MongoDB, Express.js, AngularJS, Node.js, SCRUM",
+      "repository": [
+        {
+          "title": "Peridot",
+          "urlPage": "https://play.google.com/store/apps/details?id=com.nianticlabs.peridot&hl=es&gl=US"
+        },
+        {
+          "title": "G Poker",
+          "urlPage": "https://es.ggpoker.com"
+        },
+        {
+          "title": "Spint the Wheel",
+          "urlPage": "https://spinthewheel.io/es"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "María Rodríguez Sánchez",
+      "description": "Desarrolladora Front-end apasionada por la creación de interfaces de usuario intuitivas y atractivas. Especializada en HTML, CSS y JavaScript, se destaca en la implementación de diseños creativos y responsivos. Luisa siempre busca mejorar la experiencia del usuario y está al tanto de las últimas tendencias en diseño web.",
+      "rating": 3,
+      "profileImage": "https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg",
+      "country": "Peru",
+      "cellphone": "9132851724",
+      "email": "luisa.montes@gmail.com",
+      "completedProjects": 0,
+      "skills": "Linux, Apache, MySQL, PHP, Waterfall",
+      "repository": []
+    },
+    {
+      "id": "6",
+      "name": "Javier López Martínez",
+      "description": "Desarrolladora Front-end apasionada por la creación de interfaces de usuario intuitivas y atractivas. Especializada en HTML, CSS y JavaScript, se destaca en la implementación de diseños creativos y responsivos. Luisa siempre busca mejorar la experiencia del usuario y está al tanto de las últimas tendencias en diseño web.",
+      "rating": 4,
+      "profileImage": "https://assets-global.website-files.com/6232253a9b37533306905c0a/639bb9fcb0b7738c645c153c_IMG_126D698EF95A-1.jpg",
+      "country": "Peru",
+      "cellphone": "9132851724",
+      "email": "luisa.montes@gmail.com",
+      "completedProjects": 0,
+      "skills": "Python, Django, Kanban",
+      "repository": []
+    },
+    {
+      "id": "7",
+      "name": "Ana García Rodríguez",
+      "description": "Desarrolladora Front-end apasionada por la creación de interfaces de usuario intuitivas y atractivas. Especializada en HTML, CSS y JavaScript, se destaca en la implementación de diseños creativos y responsivos. Luisa siempre busca mejorar la experiencia del usuario y está al tanto de las últimas tendencias en diseño web.",
+      "rating": 3,
+      "profileImage": "https://us.123rf.com/450wm/prometeus/prometeus2111/prometeus211100185/176873432-retrato-de-uma-menina-de-11-anos-em-um-su%C3%A9ter-quente-e-%C3%B3culos-sorrindo-alegremente-em-um-fundo-cinza.jpg",
+      "country": "Peru",
+      "cellphone": "9132851724",
+      "email": "luisa.montes@gmail.com",
+      "completedProjects": 0,
+      "skills": "Ruby, Rails, Lean",
+      "repository": []
+    },
+    {
+      "id": "8",
+      "name": "Juan Pérez Martínez",
+      "description": "Desarrolladora Front-end apasionada por la creación de interfaces de usuario intuitivas y atractivas. Especializada en HTML, CSS y JavaScript, se destaca en la implementación de diseños creativos y responsivos. Luisa siempre busca mejorar la experiencia del usuario y está al tanto de las últimas tendencias en diseño web.",
+      "rating": 1,
+      "profileImage": "https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/e40b6ea6361a1abe28f32e7910f63b66/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg",
+      "country": "Peru",
+      "cellphone": "9132851724",
+      "email": "luisa.montes@gmail.com",
+      "completedProjects": 0,
+      "skills": "MongoDB, Express.js, React.js, Node.js, DevOps",
+      "repository": []
+    },
+    {
+      "id": "9",
+      "name": "Laura Gómez Fernández",
+      "description": "Desarrolladora Front-end apasionada por la creación de interfaces de usuario intuitivas y atractivas. Especializada en HTML, CSS y JavaScript, se destaca en la implementación de diseños creativos y responsivos. Luisa siempre busca mejorar la experiencia del usuario y está al tanto de las últimas tendencias en diseño web.",
+      "rating": 5,
+      "profileImage": "https://plus.unsplash.com/premium_photo-1682096189627-2dfb5122b2ec?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "country": "Peru",
+      "cellphone": "9132851724",
+      "email": "luisa.montes@gmail.com",
+      "completedProjects": 0,
+      "skills": "MongoDB, Express.js, Vue.js, Node.js, Scrum",
+      "repository": []
+    },
+    {
+      "id": "10",
+      "name": "Pedro Silva Juarez",
+      "description": "Desarrolladora Front-end apasionada por la creación de interfaces de usuario intuitivas y atractivas. Especializada en HTML, CSS y JavaScript, se destaca en la implementación de diseños creativos y responsivos. Luisa siempre busca mejorar la experiencia del usuario y está al tanto de las últimas tendencias en diseño web.",
+      "rating": 3,
+      "profileImage": "https://img.freepik.com/foto-gratis/retrato-interior-joven-barbudo-peinado-moda_273609-3953.jpg",
+      "country": "Peru",
+      "cellphone": "9132851724",
+      "email": "luisa.montes@gmail.com",
+      "completedProjects": 0,
+      "skills": "HTML5,CSS, JavaScript, Node.js, Express, MongoDB, MySQL",
+      "repository": []
+    }
+  ],
+  "highlights-projects": [
+    {
+      "id": "1",
+      "title": "Pagina de ajedrez",
+      "description": "Este entregable consistirá en el código fuente del frontend y backend de la Plataforma de Comercio Electrónico Geekit. Se proporcionará una estructura de directorios organizada, con comentarios claros y limpios en el código para facilitar la comprensión y el mantenimiento futuro.",
+      "type": "Aplicacion Web",
+      "stars": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "image_url": "/assets/highlight-projects-images/ajedrez.png"
+    },
+    {
+      "id": "2",
+      "title": "Reproduccion de Peliculas",
+      "description": "Este entregable consistirá en el código fuente del frontend y backend de la Plataforma de Comercio Electrónico Geekit. Se proporcionará una estructura de directorios organizada, con comentarios claros y limpios en el código para facilitar la comprensión y el mantenimiento futuro.",
+      "type": "Aplicacion Movil",
+      "stars": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "image_url": "/assets/highlight-projects-images/peliculas.png"
+    },
+    {
+      "id": "3",
+      "title": "Proyecto Productividad en Entel",
+      "description": "Se entregará la Plataforma de Comercio Electrónico Geekit completamente desplegada y funcionando en un entorno de producción. Esto incluirá el hosting del sitio web, la configuración de la base de datos, la implementación de medidas de seguridad y cualquier otro aspecto necesario para que la plataforma esté lista para su lanzamiento y uso por parte de los usuarios finales.",
+      "type": "Analisis de Datos",
+      "stars": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "image_url": "/assets/highlight-projects-images/entel.png"
+    },
+    {
+      "id": "4",
+      "title": "Copia de Prueba",
+      "description": "Este entregable consistirá en el código fuente del frontend y backend de la Plataforma de Comercio Electrónico Geekit. Se proporcionará una estructura de directorios organizada, con comentarios claros y limpios en el código para facilitar la comprensión y el mantenimiento futuro.",
+      "type": "Aplicacion Web",
+      "stars": [
+        1,
+        2
+      ],
+      "image_url": "/assets/highlight-projects-images/ajedrez.png"
+    },
+    {
+      "id": "5",
+      "title": "Aplicacion de mensajeria",
+      "description": "Este entregable consistirá en el código fuente del frontend y backend de la Plataforma de Comercio Electrónico Geekit. Se proporcionará una estructura de directorios organizada, con comentarios claros y limpios en el código para facilitar la comprensión y el mantenimiento futuro.",
+      "type": "Aplicacion de Escritorio",
+      "stars": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "image_url": "/assets/highlight-projects-images/mensajeria.jpg"
+    }
+  ],
+  "show-projects": [
+    {
+    "id": 1,
+    "name": "Landing Page Geekit",
+    "description": "Geekit es tu destino para la moda geek. Nos especializamos en ofrecer una selección única de ropa y accesorios para jóvenes apasionados por la cultura pop, los videojuegos, el cine y los cómics. En Geekit, encontrarás prendas que te permiten expresar tu estilo auténtico y tu amor por tus intereses favoritos.",
+    "state": "En progreso",
+    "progress": 0,
+    "ownerId": 1,
+    "type": "Landing Page",
+    "budget": "$50 000",
+    "methodologies": ""
+    },
+    {
+      "id": 2,
+      "name": "Aplicacion Web Geekit",
+      "description": "Geekit es tu destino para la moda geek. Nos especializamos en ofrecer una selección única de ropa y accesorios para jóvenes apasionados por la cultura pop, los videojuegos, el cine y los cómics. En Geekit, encontrarás prendas que te permiten expresar tu estilo auténtico y tu amor por tus intereses favoritos.",
+      "state": "En busqueda",
+      "progress": 0,
+      "ownerId": 1,
+      "type": "Aplicación Web",
+      "budget": "$70 000",
+      "methodologies": ""
+    }
+  ]
+}

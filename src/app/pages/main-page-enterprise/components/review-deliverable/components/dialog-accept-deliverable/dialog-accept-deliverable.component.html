@@ -1,0 +1,15 @@
+<mat-dialog-content class="dialog">
+  <h2 class="title">¿Estas seguro(a) que quieres aprobar el entregable?</h2>
+  <mat-icon class="icon" style="transform: scale(2)">warning_amber</mat-icon>
+  <p class="text">Una vez aprobado, se daré pase al siguiente entregable, dejando ese asignado como finalizado</p>
+  <div class="buttons">
+    <button mat-stroked-button class="b-aceptar" (click)="acceptDeliverable()">
+      Aceptar
+    </button>
+    <button mat-stroked-button class="b-cancelar" (click)="rejectDeliverable()">
+      Rechazar
+    </button>
+  </div>
+</mat-dialog-content>
+
+

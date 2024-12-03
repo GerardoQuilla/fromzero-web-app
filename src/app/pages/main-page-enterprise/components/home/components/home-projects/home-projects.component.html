@@ -1,0 +1,82 @@
+<div class="bg-white h-full flex flex-col justify-center">
+  <h1 class="text-blue-600 text-center">Tus proyectos</h1>
+
+  <div class="flex justify-center">
+    <hr class="w-5/6 text-gray-500">
+  </div>
+
+  <div>
+
+    @if (perfilUsuarioProjects?.length) {
+
+      <div class="projects-container">
+
+        @for (project of perfilUsuarioProjects; track $index) {
+
+          @if (project.state === "EN_BUSQUEDA") {
+            <div class="rounded-lg shadow-lg border mx-5 my-4">
+
+              <a [routerLink]="goToDeliverables(project.id)">
+                <h2 class="text-black text-center font-bold hover:bg-gray-200">{{ project.name }}</h2>
+              </a>
+
+              <div class="flex gap-5 justify-center cursor-pointer" (click)="openDialog(project)">
+                <h3 class="text-blue-600">A espera de desarrollador</h3>
+                <h3
+                  class="bg-red-600 rounded-full w-6 h-6 flex items-center justify-center text-white">{{ project.candidates?.length }}</h3>
+              </div>
+            </div>
+          } @else if (project.state === "EN_PROGRESO") {
+
+            <div class="rounded-lg shadow-lg border mx-5 my-4 py-4">
+
+              <a [routerLink]="goToDeliverables(project.id)">
+                <h2 class="text-black text-center font-bold hover:bg-gray-200">{{ project.name }}</h2>
+              </a>
+
+              <div class="flex flex-col justify-between">
+                <div class="flex flex-row justify-around">
+                  <h3 class="text-blue-600">Progreso</h3>
+                  <h3 class="text-purple-500">{{ project.progress }}%</h3>
+                </div>
+
+                <div class="flex justify-center">
+                  <div class="w-3/5">
+                    <mat-progress-bar mode="determinate" value="{{ project.progress }}"></mat-progress-bar>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          } @else if (project.state === "COMPLETADO") {
+
+            <div class="rounded-lg shadow-lg border mx-5 my-4">
+
+              <a [routerLink]="goToDeliverables(project.id)" >
+                <h2 class="text-black text-center font-bold hover:bg-gray-200">{{ project.name }}</h2>
+              </a>
+
+              <div>
+                <h3 class="text-green-500 text-center font-bold">COMPLETADO!!</h3>
+              </div>
+
+            </div>
+
+          }
+        }
+
+      </div>
+
+    } @else {
+      @for (empty of emptyProjects; track $index) {
+        <div class="bg-gray-500 rounded-lg shadow-md border mx-5 my-2">
+          <h2 class="text-black text-center">Proyecto vacio</h2>
+        </div>
+      }
+    }
+  </div>
+
+</div>
+

@@ -1,0 +1,83 @@
+<div class="delvs-container">
+  @if (isProjectCompleted && !isPaymentCompleted){
+    <div class="pay-developer-content">
+      <h2>Todos los entregables han sido completado</h2>
+      <h3 (click)="payDeveloper()" class="hover:bg-gray-200 cursor-pointer"><i><u>
+        Ingresa aquí para pagar al desarrollador
+      </u></i></h3>
+    </div>
+  } @else if (isPaymentCompleted){
+    <div class="payment-done">
+      <h2>Pago realizado</h2>
+      <h3 (click)="paymentDetails()" class="hover:bg-gray-200 cursor-pointer"><i><u>
+        Ingrese aquí para ver boleta
+      </u></i></h3>
+    </div>
+  }
+  <div class="delvs-title">
+    <h1 style="margin: 0">Cronograma de entregables</h1>
+  </div>
+  @if (deliverables?.length) {
+    <div class="delvs-content">
+      <ul class="delvs-list">
+        @for (delv of deliverables; track delv.id) {
+          <li class="deliverable">
+            <mat-card>
+              <a [routerLink]="goToReviewDelv(delv.id)">
+                <mat-card-header>
+                  <mat-card-title>
+                    Entregable {{$index+1}}: {{ delv.name }}
+                  </mat-card-title>
+                </mat-card-header>
+              </a>
+              <mat-card-content>
+                <div class="delv-details">
+                  <div class="delv-description">
+                    <h2>Descripción</h2>
+                    <h3>{{ delv.description }}</h3>
+                  </div>
+                  <div class="delv-deadline-state">
+                    <div>
+                      <mat-icon>access_time_filled</mat-icon>
+                      <p>Fecha límite</p>
+                      <p>{{ delv.date }}</p>
+                    </div>
+                    <div>
+                      @if (delv.state === 'COMPLETADO') {
+                        <mat-icon class="text-green-600">check</mat-icon>
+                        <p>Estado</p>
+                        <p>{{ delv.state }}</p>
+                      } @else if (delv.state === 'RECHAZADO') {
+                        <mat-icon class="text-red-600">cancel</mat-icon>
+                        <p>Estado</p>
+                        <p>{{ delv.state }}</p>
+                      } @else if (delv.state === 'ESPERANDO_REVISION') {
+                        <mat-icon class="text-purple-600">hourglass_empty</mat-icon>
+                        <p>Estado</p>
+                        <p>{{ delv.state }}</p>
+                      } @else {
+                        <mat-icon class="text-blue-600">pending</mat-icon>
+                        <p>Estado</p>
+                        <p>{{ delv.state }}</p>
+                      }
+                    </div>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </li>
+        }
+      </ul>
+    </div>
+  } @else {
+    <div>
+      <h1 style="text-align: center">Agregar entregable</h1>
+    </div>
+  }
+  <div class="delv-add">
+    <button mat-icon-button aria-label="add deliverable"
+            (click)="openDialog()" [disabled]="isProjectCompleted">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>

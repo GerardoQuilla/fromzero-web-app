@@ -1,0 +1,7 @@
+.payment-list{
+  padding: 20px;
+  height: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-right: 10px;
+}

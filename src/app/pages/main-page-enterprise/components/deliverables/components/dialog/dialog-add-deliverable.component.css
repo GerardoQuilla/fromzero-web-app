@@ -1,0 +1,30 @@
+.dialog-input-section{
+  display: flex;
+  /*justify-content: space-between;*/
+  align-items: center;
+}
+.dialog-input-section-1{
+  display: block;
+  padding: 10px;
+}
+
+.dialog-input-section-2{
+  padding: 10px;
+}
+.dialog-buttons{
+  display: flex;
+  justify-content: space-between;
+}
+/*.dialog-buttons div{
+  margin:auto ;
+}*/
+@media screen and (max-width: 590px){
+  .dialog-input-section{
+    display: block;
+    text-align: center;
+  }
+  .dialog-buttons{
+    flex-wrap: wrap-reverse;
+  }
+
+}

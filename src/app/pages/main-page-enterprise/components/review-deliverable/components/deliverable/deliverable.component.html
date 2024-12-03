@@ -1,0 +1,61 @@
+<div class="w-full flex justify-center">
+
+  <mat-card style="justify-content: center;margin: 0 20px;width: 1000px;height: 500px">
+
+    <mat-card-header style="display:block;text-align: center">
+      <mat-card-title>
+        Entregable: {{ deliverable?.name }}
+      </mat-card-title>
+      <mat-card-subtitle>
+        Estado: {{ deliverable?.state }}
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <h2>Descripcion de Entrega</h2>
+
+      <p style="white-space: pre-line">{{ deliverable?.description }}</p>
+      <div class="divider"></div>
+      <div>
+        @if (deliverable?.developerMessage) {
+          <h2>Mensaje del desarrollador</h2>
+          <p style="margin: 0;white-space: pre-line">{{ deliverable?.developerMessage }}</p>
+        } @else {
+          <h3 style="text-align: center">Esperando entrega del desarrollador</h3>
+        }
+      </div>
+      <div class="divider"></div>
+      @if (deliverable?.files?.length !== 0) {
+        <h2 style="text-align: center">Archivos adjuntos</h2>
+        <div class="files-list">
+        @for (file of deliverable?.files; track $index){
+          <a [href]="file.url" [download]="file.name" class="attached-file">
+            <h3 style="margin: 0">{{file.name}}</h3>
+          </a>
+          <!--<br><br>-->
+        }
+        </div>
+        <div class="divider"></div>
+      }
+      <div style="display: flex; flex-direction: column;justify-content: center">
+        <button mat-stroked-button [disabled]="!deliverable?.developerMessage || deliverable?.state==='COMPLETADO'"
+                (click)="openDialog()">
+          Aprobar Entrega
+        </button>
+        <!--<div style="display: flex; flex-direction: row; justify-content: center">
+
+
+          @if (accepted === "COMPLETADO") {
+            <p class="text-green-500 text-xl">Entregable Aceptado</p>
+            <mat-icon class="text-green-500">check_circle_outline</mat-icon>
+          } @else if (accepted === "RECHAZADO") {
+            <p class="text-red-500 text-xl">Entregable Rechazado</p>
+            <mat-icon class="text-red-500">cancel</mat-icon>
+          }
+        </div>-->
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+
+</div>

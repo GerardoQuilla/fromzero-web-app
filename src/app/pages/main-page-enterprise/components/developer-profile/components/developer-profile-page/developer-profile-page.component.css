@@ -1,0 +1,11 @@
+app-developer-profile-card, app-developer-repository-card {
+  margin: 0 20px;
+}
+
+app-developer-profile-card {
+  width: 60%;
+}
+
+app-developer-repository-card {
+  width: 80%;
+}

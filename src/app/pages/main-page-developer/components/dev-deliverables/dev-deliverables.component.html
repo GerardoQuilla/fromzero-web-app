@@ -1,0 +1,62 @@
+<div class="delvs-container">
+  <div class="delvs-title">
+    <h1>Cronograma de entregables</h1>
+  </div>
+  @if(deliverables?.length){
+    <div class="delvs-content">
+      <ul class="delvs-list">
+        @for (delv of deliverables; track delv.id) {
+          <li class="deliverable">
+            <mat-card>
+              <a [routerLink]="goToReviewDelv(delv.id)">
+                <mat-card-header>
+                  <mat-card-title>
+                    Entregable {{$index+1}}: {{ delv.name }}
+                  </mat-card-title>
+                </mat-card-header>
+              </a>
+              <mat-card-content>
+                <div class="delv-details">
+                  <div class="delv-description">
+                    <h2>Descripción</h2>
+                    <h3>{{ delv.description }}</h3>
+                  </div>
+                  <div class="delv-deadline-state">
+                    <div>
+                      <mat-icon>access_time_filled</mat-icon>
+                      <p>Fecha límite</p>
+                      <p>{{delv.date}}</p>
+                    </div>
+                    <div>
+                      @if (delv.state === 'COMPLETADO') {
+                        <mat-icon class="text-green-600">check</mat-icon>
+                        <p>Estado</p>
+                        <p>{{ delv.state }}</p>
+                      } @else if (delv.state === 'RECHAZADO') {
+                        <mat-icon class="text-red-600">cancel</mat-icon>
+                        <p>EstadoOO</p>
+                        <p>{{ delv.state }}</p>
+                      } @else if (delv.state === 'ESPERANDO_REVISION') {
+                        <mat-icon class="text-purple-600">hourglass_empty</mat-icon>
+                        <p>Estado</p>
+                        <p>{{ delv.state }}</p>
+                      } @else {
+                        <mat-icon class="text-blue-600">pending</mat-icon>
+                        <p>Estado</p>
+                        <p>{{ delv.state }}</p>
+                      }
+                    </div>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </li>
+        }
+      </ul>
+    </div>
+  } @else {
+    <div>
+      <h1 style="text-align: center;color: gray"><i>La empresa no ha publicado entregables</i></h1>
+    </div>
+  }
+</div>

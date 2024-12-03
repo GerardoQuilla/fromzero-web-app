@@ -1,0 +1,31 @@
+<div class="payment-list">
+  @for (payment of payments; track payment.id) {
+
+    <mat-card style="margin: 20px 0">
+      <mat-card-header style="display: block; text-align: center">
+        <mat-card-title>
+          {{payment.project.name}}
+        </mat-card-title>
+        <mat-card-subtitle>
+          <div class="flex flex-row justify-center items-center">
+            por: {{payment.project.company.companyName}}
+            <img [src]="payment.project.company.profileImgUrl" alt="empresa" class="w-10 h-10 rounded-full">
+          </div>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <h2>
+          Estado del pago: <span [ngStyle]="getPaymentStatusStyle(payment)" >{{payment.status}}</span>
+        </h2>
+        <h2>Proyecto finalizado el: {{payment.createdAt}}</h2>
+        @if (payment.status==="COMPLETADO"){
+          <h2>Pago realizado el: {{payment.completedAt}}</h2>
+        }
+        <h2>Monto: {{payment.amount}}</h2>
+      </mat-card-content>
+    </mat-card>
+
+  } @empty {
+    <h2>Aún no has completado proyectos</h2>
+  }
+</div>

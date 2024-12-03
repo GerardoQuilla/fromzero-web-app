@@ -1,0 +1,53 @@
+<div class="bg-white h-full flex flex-col justify-center">
+  <h1 class="text-blue-600 text-center">Repositorio</h1>
+
+  <div class="flex justify-center">
+    <hr class="w-5/6 text-gray-500">
+  </div>
+
+  <div>
+
+    @if (perfilDeveloperRepository?.length) {
+
+      <div class="projects-container">
+
+        @for (project of perfilDeveloperRepository; track $index) {
+
+          @if (project.state === "COMPLETADO") {
+
+            <div class="developer-project-card">
+              <mat-card>
+                <mat-card-header style="display: block; text-align: center">
+                  <mat-card-title>
+                    {{ project?.name }}
+                  </mat-card-title>
+                  <mat-card-subtitle>
+                    {{ project?.type }}
+                  </mat-card-subtitle>
+                </mat-card-header>
+
+                <mat-card-content>
+                  <div class="flex flex-row justify-around items-center max-sm:flex-col max-sm:justify-center">
+                    <h3 style="margin: 0;text-align: center">Trabajó para la empresa {{ project?.company?.companyName }}</h3>
+                    <img mat-card-image [src]="project?.company?.profileImgUrl" alt="Perfil de empresa"
+                         class="w-12 h-12">
+                  </div>
+                </mat-card-content>
+
+              </mat-card>
+            </div>
+          }
+
+        }
+
+      </div>
+
+    } @else {
+      <div style="margin: 0 20px">
+        <h3 style="color: gray;text-align: center"><i>Este desarrollador aun no ha completado proyectos en esta
+          plataforma</i></h3>
+      </div>
+    }
+  </div>
+
+</div>

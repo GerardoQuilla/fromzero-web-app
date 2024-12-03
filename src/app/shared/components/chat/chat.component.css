@@ -1,0 +1,26 @@
+.contact-content{
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+}
+.contact-content:hover{
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+.contact-content h1{
+  margin: 0;
+}
+
+@media screen and (max-width: 400px) {
+  .contact-content{
+    margin: 0 10px;
+    flex-direction: column;
+    width: 150px;
+    height: 100%;
+  }
+}

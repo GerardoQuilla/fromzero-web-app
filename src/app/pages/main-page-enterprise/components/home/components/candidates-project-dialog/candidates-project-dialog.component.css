@@ -1,0 +1,13 @@
+.mat-mdc-card-content{
+ display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.mat-mdc-card.mdc-card{
+  margin: 10px;
+  box-shadow: black;
+}
+.project-card {
+  max-height: 73vh;
+  overflow-y: auto;
+}

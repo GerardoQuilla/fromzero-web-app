@@ -1,0 +1,71 @@
+<div class="w-full h-full flex justify-center">
+  <ul style="margin: 0 40px; width: 1200px">
+    <div class="found-projects-list flex flex-col">
+      @for (project of projects; track project.id) {
+        <li style="margin: 20px 0">
+          <mat-card>
+
+            <mat-card-header style="display: block">
+              <mat-card-title>
+                <h1 style="text-align: center">{{ project.name }}</h1>
+              </mat-card-title>
+              <mat-card-subtitle>
+                <h3 style="text-align: center">{{ project.type }}</h3>
+              </mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content>
+              <div class="found-project-container flex flex-row justify-around items-center">
+                <div class="flex flex-col justify-center">
+                  @if (project.languages.length !== 0 || project.frameworks.length !== 0) {
+                    <h2 style="margin: 0 20px">Se busca desarrollador con las siguientes especialidades:</h2>
+                    <div class="flex flex-row justify-around">
+                      <div>
+                        <p><strong>Lenguajes de programación:</strong></p>
+                        <div style="height: 100px;overflow-x: hidden; overflow-y: auto">
+                          @for (language of project.languages; track language) {
+                            <p>{{ language }}</p>
+                          }@empty {
+                            <p>Por definirse</p>
+                          }
+                        </div>
+                      </div>
+                      <div>
+                        <p><strong>Tecnologías:</strong></p>
+                        <div style="height: 100px;overflow-x: hidden; overflow-y: auto">
+                          @for (framework of project.frameworks; track framework) {
+                            <p>{{ framework }}</p>
+                          }@empty {
+                            <p>Por definirse</p>
+                          }
+                        </div>
+                      </div>
+                    </div>
+                  } @else {
+                    <h2><i>Tecnologías por definirse</i></h2>
+                  }
+                  <div class="flex justify-center">
+                    <button mat-raised-button (click)="goToProject(project.id)">Ver proyecto</button>
+                  </div>
+
+                </div>
+                <div class="flex flex-col justify-center">
+                  <h3>Publicado por: {{ project.company.companyName }}</h3>
+                  <div class="flex justify-center">
+                    <img mat-card-sm-image [src]="project.company.profileImgUrl" [alt]="project.company.companyName"/>
+                  </div>
+                  <button mat-raised-button (click)="redirectToProfile(project.company.id)">Ver empresa</button>
+                </div>
+              </div>
+            </mat-card-content>
+
+          </mat-card>
+        </li>
+      } @empty {
+        <h1 style="text-align: center"><i>
+          Aún no hay proyectos publicados
+        </i></h1>
+      }
+    </div>
+  </ul>
+</div>

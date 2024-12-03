@@ -1,0 +1,70 @@
+<div class="flex justify-center w-full h-full">
+  <mat-card style="width: 900px;margin: 0 15px">
+    <mat-card-header style="display: block">
+      <mat-card-title style="text-align: center">
+        {{ project?.name }}
+      </mat-card-title>
+      <mat-card-subtitle>
+        <h4 style="white-space: pre-line">{{ project?.description }}</h4>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="flex flex-col justify-center">
+        <div class="project-info flex flex-row flex-wrap justify-around items-stretch">
+          <div>
+            <h2><u>Tecnologías</u></h2>
+            @if (project?.languages?.length!==0 || project?.frameworks?.length!==0) {
+              <div>
+                <div>
+                  <h3><strong>Lenguajes</strong></h3>
+                  <ul>
+                    @for (language of project?.languages; track language) {
+                      <li>{{ language }}</li>
+                    } @empty {
+                      <p>Por definirse</p>
+                    }
+                  </ul>
+                </div>
+                <div style="margin-top: 10px">
+                  <h3><strong>Frameworks</strong></h3>
+                  <ul>
+                    @for (framework of project?.frameworks; track framework) {
+                      <li>{{ framework }}</li>
+                    }@empty {
+                      <p>Por definirse</p>
+                    }
+                  </ul>
+                </div>
+              </div>
+            } @else {
+              <h3><i>El desarrollador tendrá libertad para elegir las tecnologías a utilizar en el proyecto.</i></h3>
+            }
+          </div>
+          <div>
+            <h2><u>Presupuesto:</u></h2>
+            <p>
+              {{ project?.budget }}
+            </p>
+          </div>
+          <div style="width: 100%">
+            <h2><u>Procesos y Metodologías de Desarrollo</u></h2>
+            <ol style="height: 270px; overflow-x: hidden;
+                  overflow-y: auto; margin-right: 5px;">
+              @for (methodology of methodologies; track $index) {
+                <li>
+                  <p><strong>{{ $index + 1 }}. {{ methodology?.name }}</strong></p>
+                  <p>{{ methodology?.description }}</p>
+                </li>
+              }
+            </ol>
+          </div>
+        </div>
+        <div class="flex justify-center">
+          <button mat-raised-button (click)="openDialog()">
+            Postular a Proyecto
+          </button>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

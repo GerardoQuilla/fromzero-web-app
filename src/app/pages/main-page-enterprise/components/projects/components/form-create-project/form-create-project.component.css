@@ -1,0 +1,29 @@
+hr {
+  background-color: black;
+  height: 1px;
+}
+
+.create-project-content {
+  height: 350px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-right: 5px;
+}
+.selected{
+  height: 45px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-right: 5px;
+}
+@media screen and (max-width: 1020px) {
+  .create-project-content{
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .tecnologias{
+    flex-direction: column;
+    justify-content: center;
+  }
+}

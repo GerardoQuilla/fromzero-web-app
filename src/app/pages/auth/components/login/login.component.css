@@ -1,0 +1,59 @@
+.login-container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+
+.login-background-content {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+}
+
+.login-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.login-fromzero-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*-------------------------------*/
+.login-form-container {
+  margin: auto;
+}
+
+.login-form-content {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+}
+
+@media screen and (max-width:800px) {
+  .login-background-content{
+    width: 100%;
+  }
+  .login-fromzero-logo{
+    top: 20%;
+  }
+  .login-form-container{
+    margin: 0;
+  }
+  .login-form-content{
+    width: 100%;
+  }
+  .login-form-content a{
+    color: white;
+  }
+}

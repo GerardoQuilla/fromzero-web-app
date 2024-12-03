@@ -1,0 +1,76 @@
+<div class="w-full h-full">
+  <div class="mx-5">
+    <h1 style="text-align: center;margin: 0">Proyectos Destacados</h1>
+    <div class="flex justify-center">
+      <div class="filter-section">
+        <input placeholder="Busca proyectos de grandes empresas" [(ngModel)]="companyNameFilter">
+        <button mat-flat-button color="primary" (click)="filterByCompany(companyNameFilter)">Buscar</button>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button mat-stroked-button
+              (click)="filterProjects('WEB_APPLICATION')">
+        Aplicacion Web
+      </button>
+
+      <button mat-stroked-button
+              (click)="filterProjects('LANDING_PAGE')">
+        Landing Page
+      </button>
+
+      <button mat-stroked-button
+              (click)="filterProjects('DESKTOP_APPLICATION')">
+        Aplicacion de Escritorio
+      </button>
+
+      <button mat-stroked-button
+              (click)="filterProjects('MOBILE_APPLICATION')">
+        Aplicación Móvil
+      </button>
+
+      <button mat-stroked-button
+              (click)="filterProjects('Borrar Filtros')">
+        Borrar Filtros
+      </button>
+    </div>
+
+    <div style="display: flex; justify-content: center; margin-top: 20px">
+      <ul class="project-list">
+        @for (project of filteredProjects; track $index) {
+          <mat-card style="margin: 20px 0">
+            <mat-card-header style="display: block">
+              <mat-card-title>
+                <h1 style="text-align: center">{{ project.name }}</h1>
+              </mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+              <div class="flex flex-row justify-around flex-wrap-reverse">
+                <div class="flex justify-center">
+                  <div style="width: 600px">
+                    <h2 style="white-space: pre-line">Descripcion</h2>
+                    <p>{{ project.description }}</p>
+                  </div>
+                </div>
+                <div>
+
+                  <div class="flex flex-row gap-3 justify-end items-center">
+                    <p style="margin: 0">por <strong> {{ project.company.companyName }}</strong></p>
+                    <img mat-card-image [src]="project.company.profileImgUrl" alt="Perfil" class="w-9 h-9">
+                  </div>
+                  <div class="flex flex-row gap-3 justify-end items-center">
+                    <p style="margin: 0">y
+                      <strong>{{ project.developer.firstName }} {{ project.developer.lastName }}</strong></p>
+                    <img mat-card-image [src]="project.developer.profileImgUrl" alt="Perfil" class="w-9 h-9">
+                  </div>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        }
+      </ul>
+    </div>
+
+  </div>
+</div>

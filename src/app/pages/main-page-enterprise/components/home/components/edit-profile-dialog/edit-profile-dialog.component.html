@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Editar Perfil</h1>
+<div mat-dialog-content class="custom-dialog-content">
+  <mat-form-field>
+    <mat-label>Descripcion</mat-label>
+    <textarea matInput [(ngModel)]="data.description" class="w-full"></textarea>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>País</mat-label>
+    <input matInput [(ngModel)]="data.country">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>RUC</mat-label>
+    <input matInput [(ngModel)]="data.ruc">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Teléfono</mat-label>
+    <input matInput [(ngModel)]="data.phone">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Sitio Web</mat-label>
+    <input matInput [(ngModel)]="data.website">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Foto de perfil (url)</mat-label>
+    <input matInput [(ngModel)]="data.profileImgUrl">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Sector</mat-label>
+    <input matInput [(ngModel)]="data.sector">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button (click)="updateProfile()">Guardar</button>
+</div>

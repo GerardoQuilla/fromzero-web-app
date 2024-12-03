@@ -1,0 +1,24 @@
+.divider{
+  height: 1px;
+  background-color: black;
+  margin-bottom: 20px;
+}
+.files-list{
+  height: 50px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-right: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.attached-file{
+  padding: 1px;
+  display: inline-block;
+  text-align: center;
+}
+.attached-file:hover{
+  background-color: lightgray;
+}

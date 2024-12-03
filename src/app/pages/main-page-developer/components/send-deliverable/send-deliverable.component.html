@@ -1,0 +1,58 @@
+<div class="h-full flex justify-center">
+  <mat-card
+    style="margin: 0 20px;height: 500px;width:900px;display: flex;flex-direction: column;justify-content: center">
+    <mat-card-header style="display:block;">
+      <mat-card-title style="text-align: center">{{ deliverable?.name }}</mat-card-title>
+      <mat-card-subtitle style="white-space: pre-line">{{ deliverable?.description }}</mat-card-subtitle>
+      <mat-card-title>Estado: {{ deliverable?.state }}</mat-card-title>
+      @if (deliverable?.state === "RECHAZADO") {
+        <mat-card-subtitle style="color: red"><strong>Su entrega anterior fue rechazada</strong></mat-card-subtitle>
+      }
+    </mat-card-header>
+
+    <mat-card-content style="display: flex; flex-direction: column">
+      <div class="send-deliverable-content">
+        <h3>Agregar mensaje</h3>
+        <div class="flex justify-center">
+          <mat-form-field style="width: 90%">
+            <textarea matInput [formControl]="developerMessage" style="resize: none; height: 100px"></textarea>
+          </mat-form-field>
+        </div>
+        <div>
+          <h3>Adjuntar archivos o imagenes</h3>
+          <input type="file" (change)="onFileSelected($event)" multiple id="fileInput">
+          @if(files.length!==0){
+          <div class="files-to-send">
+          @for (file of files; track $index){
+            <div style="display:flex;flex-direction: row">
+            <h3>{{file.name}}</h3>
+            <mat-icon class="text-red-600 cursor-pointer"
+                 (click)="deleteFile($index)">
+              delete
+            </mat-icon>
+            </div>
+          }
+          </div>
+          }
+        </div>
+      </div>
+      <div style="display: flex;flex-direction: column;justify-content: center">
+        <div style="text-align: center">
+        <button mat-stroked-button [disabled]="deliverable?.state==='COMPLETADO'"
+                (click)="submitDeliverable()">
+          Enviar entregable a revisión
+        </button>
+        </div>
+        <!--<div style="display: flex; flex-direction: row; justify-content: center">
+        @if (sent===1){
+          <p class="text-green-500 text-xl">Enviado</p>
+          <mat-icon class="text-green-500">check_circle_outline</mat-icon>
+        } @else if (sent===2){
+          <p class="text-red-500 text-xl">Error al enviar</p>
+          <mat-icon class="text-red-500">cancel</mat-icon>
+        }
+        </div>-->
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

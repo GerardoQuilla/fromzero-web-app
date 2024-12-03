@@ -1,0 +1,14 @@
+.message-content {
+  background-color: lightblue;
+  padding: 8px;
+  border-radius: 10px;
+  margin: 0;
+  max-width: 60%;
+  white-space: pre-line;
+}
+
+@media screen and (max-width: 400px) {
+  .message-content {
+    max-width: 90%;
+  }
+}

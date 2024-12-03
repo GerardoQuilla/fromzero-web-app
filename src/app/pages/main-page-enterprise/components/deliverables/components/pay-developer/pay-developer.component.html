@@ -1,0 +1,29 @@
+<h1 style="text-align: center;margin: 0">Realizar pago</h1>
+<div class="flex-col justify-center p-5">
+  <div>
+  <mat-form-field style="width: 100%">
+    <mat-label>Ingrese tarjeta</mat-label>
+    <input matInput maxlength="16" [(ngModel)]="cardNumber">
+  </mat-form-field>
+  </div>
+  <div>
+  <mat-form-field style="width: 100%">
+    <mat-label>Ingrese fecha de expiración</mat-label>
+    <input matInput [(ngModel)]="expirationDate">
+  </mat-form-field>
+  </div>
+  <div>
+  <mat-form-field style="width: 100%">
+    <mat-label>Ingrese CVV</mat-label>
+    <input matInput maxlength="3" [(ngModel)]="cvv">
+  </mat-form-field>
+  </div>
+  <div>
+    <button mat-stroked-button color="primary" (click)="payDeveloper()">
+      Pagar
+    </button>
+    <button mat-stroked-button color="warning" (click)="closeDialog()">
+      Cerrar
+    </button>
+  </div>
+</div>

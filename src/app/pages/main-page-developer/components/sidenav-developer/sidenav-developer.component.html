@@ -1,0 +1,46 @@
+<div class="sidenav" [ngClass]="expand ? 'sidenav-expanded':''">
+  <div class="sidenav-container">
+    <div class="logo-container">
+      @if (expand) {
+        <img [src]="user.profileImgUrl" [alt]="user.firstName" class="logo">
+      }
+      <button (click)="toggleExpand()" class="btn">
+        <img src="https://www.freeiconspng.com/thumbs/menu-icon/menu-icon-24.png" alt="toggle" class="toggle-image">
+      </button>
+    </div>
+    <ul class="sidenav-nav">
+      <li class="sidenav-nav-item">
+        <a routerLink="/app-developer/main/search-projects" class="sidenav-nav-link">
+          <img src="assets/sidenav-images/busqueda.png" alt="explorar" class="sidenav-link-img">
+          @if (expand) {
+            <span class="sidenav-link-text">Explorar Proyectos</span>
+          }
+        </a>
+      </li>
+      <li class="sidenav-nav-item">
+        <a routerLink="/app-developer/main/home" class="sidenav-nav-link">
+          <img src="assets/sidenav-images/fromzero.png" alt="inicio" class="sidenav-link-img">
+          @if (expand) {
+            <span class="sidenav-link-text">Inicio</span>
+          }
+        </a>
+      </li>
+      <li class="sidenav-nav-item">
+        <a routerLink="/app-developer/main/shared/highlight-projects" class="sidenav-nav-link">
+          <img src="assets/sidenav-images/estrella.png" alt="destacados" class="sidenav-link-img">
+          @if (expand) {
+            <span class="sidenav-link-text">Proyectos Destacados</span>
+          }
+        </a>
+      </li>
+      <li class="sidenav-nav-item">
+        <a (click)="logout()" routerLink="/login" class="sidenav-nav-link">
+          <img src="assets/sidenav-images/Logout.png" alt="salir" class="sidenav-link-img">
+          @if (expand) {
+            <span class="sidenav-link-text">Salir</span>
+          }
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

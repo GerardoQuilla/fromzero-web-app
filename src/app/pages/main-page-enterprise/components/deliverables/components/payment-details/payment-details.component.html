@@ -1,0 +1,17 @@
+<div>
+  <mat-card>
+    <mat-card-header style="display: block; text-align: center">
+      <mat-card-title>
+        {{payment?.project?.name}}
+      </mat-card-title>
+      <mat-card-subtitle>
+        {{payment?.project?.company?.companyName}}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <h3>Finalización del proyecto: {{payment?.createdAt}}</h3>
+      <h3>Pago realizado el: {{payment?.completedAt}}</h3>
+      <h3>Monto del pago: {{payment?.amount}}</h3>
+    </mat-card-content>
+  </mat-card>
+</div>

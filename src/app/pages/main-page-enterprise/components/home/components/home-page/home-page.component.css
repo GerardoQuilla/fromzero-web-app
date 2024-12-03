@@ -1,0 +1,11 @@
+app-home-projects, app-home-profile {
+  margin: 0 20px;
+}
+
+app-home-profile{
+  width: 60%;
+}
+
+app-home-projects {
+  width: 80%;
+}

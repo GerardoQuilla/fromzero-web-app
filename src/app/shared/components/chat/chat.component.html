@@ -1,0 +1,14 @@
+
+<div class="contact-content" (click)="selectedChat(chat.id)">
+  @if (currentUser === "E") {
+    <h2 style="margin: 0">{{ chat.developer.firstName }} {{ chat.developer.lastName }}</h2>
+    <div class="flex justify-center">
+      <img mat-card-image [src]="chat.developer.profileImgUrl" alt="Perfil" class="w-9 h-auto">
+    </div>
+  } @else if (currentUser === "D") {
+    <h2 style="margin: 0">{{ chat.company.companyName }}</h2>
+    <div>
+      <img mat-card-image [src]="chat.company.profileImgUrl" alt="Perfil" class="w-9 h-auto">
+    </div>
+  }
+</div>

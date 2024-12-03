@@ -1,0 +1,35 @@
+.dialog{
+  width: 500px;
+}
+
+.title{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: black;
+}
+
+.icon{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  color: sandybrown;
+}
+
+.text{
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.buttons{
+  display:flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.buttons button{
+  width: 200px;
+  display: block;
+  margin: 0 30px;
+}

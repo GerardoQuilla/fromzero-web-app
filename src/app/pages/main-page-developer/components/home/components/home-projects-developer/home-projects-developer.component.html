@@ -1,0 +1,173 @@
+<div class="bg-white h-full flex flex-col justify-center">
+  <h1 class="text-blue-600 text-center">Tus proyectos</h1>
+
+  <div class="flex justify-center">
+    <hr class="w-5/6 text-gray-500">
+  </div>
+
+  <div>
+
+    @if (perfilUsuarioProjects?.length) {
+
+      <div class="developer-projects-container">
+
+        @for (project of perfilUsuarioProjects; track $index) {
+
+          <!--@if (project.state === "EN_BUSQUEDA") {
+            <div class="rounded-lg shadow-lg border mx-5 my-4">
+
+              <a [routerLink]="goToDeliverables(project.id)">
+                <h2 class="text-black text-center font-bold hover:bg-gray-200">{{ project.name }}</h2>
+              </a>
+
+              <div class="flex gap-5 justify-center cursor-pointer" (click)="openDialog(project)">
+                <h3 class="text-blue-600">A espera de desarrollador</h3>
+                <h3
+                  class="bg-red-600 rounded-full w-6 h-6 flex items-center justify-center text-white">{{ project.candidates?.length }}</h3>
+              </div>
+            </div>
+          } @else-->
+          @if (project.state === "EN_PROGRESO") {
+
+            <div class="rounded-lg shadow-lg border mx-5 my-4 py-4">
+
+              <a [routerLink]="goToDeliverables(project.id)">
+                <h2 class="text-black text-center font-bold hover:bg-gray-200">{{ project.name }}</h2>
+              </a>
+
+              <div class="flex flex-col justify-between">
+                <div class="flex flex-row justify-around">
+                  <h3 class="text-blue-600">Progreso</h3>
+                  <h3 class="text-purple-500">{{ project.progress }}%</h3>
+                </div>
+
+                <div class="flex justify-center">
+                  <div class="w-3/5">
+                    <mat-progress-bar mode="determinate" value="{{ project.progress }}"></mat-progress-bar>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          } @else if (project.state === "COMPLETADO") {
+
+            <div class="rounded-lg shadow-lg border mx-5 my-4">
+
+              <a>
+                <h2 class="text-black text-center font-bold">{{ project.name }}</h2>
+              </a>
+
+              <div>
+                <h3 class="text-green-500 text-center font-bold">COMPLETADO!!</h3>
+              </div>
+
+            </div>
+
+          }
+        }
+
+      </div>
+
+    } @else {
+      @for (empty of emptyProjects; track $index) {
+        <div class="bg-gray-500 rounded-lg shadow-md border mx-5 my-2">
+          <h2 class="text-black text-center">Proyecto vacio</h2>
+        </div>
+      }
+    }
+  </div>
+
+</div>
+
+
+
+
+<!--
+<div class="container w-2/3 h-full">
+  <mat-card class="project-card">
+    <mat-card-header>
+      <mat-card-title>
+        <p class="text-blue-600 ">Tus proyectos</p>
+      </mat-card-title>
+    </mat-card-header>
+    <div class="flex justify-center">
+      <hr class="w-5/6 text-gray-500">
+    </div>
+    <mat-card-content>
+      <div class="container w-full h-full overflow-auto flex flex-col gap-5">
+        <mat-card *ngIf="perfilUsuarioProjects?.length; else noProjects" class="projects-container">
+          <mat-card-content>
+            <ng-container *ngFor="let project of perfilUsuarioProjects">
+              <mat-card *ngIf="project.state === 'EN_BUSQUEDA'; else inProgress">
+                <mat-card-header>
+                  <mat-card-title>
+                    <a [routerLink]="goToDeliverables(project.id)">
+                      <p class="text-black text-xs font-bold hover:bg-gray-200">{{ project.name }}</p>
+                    </a>
+                  </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <div class="flex gap-5 justify-center cursor-pointer" (click)="openDialog(project)">
+                    <p class="text-blue-600">A espera de desarrollador</p>
+                    <p class="bg-red-600 rounded-full w-6 h-6 flex items-center justify-center text-white text-sm">{{project.candidates.length}}</p>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+              <ng-template #inProgress>
+                <mat-card *ngIf="project.state === 'EN_PROGRESO'; else completed">
+                  <mat-card-header>
+                    <mat-card-title>
+                      <a [routerLink]="goToDeliverables(project.id)">
+                        <p class="text-black text-xs font-bold hover:bg-gray-200">{{ project.name }}</p>
+                      </a>
+                    </mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <div class="flex flex-col justify-between vertical-center">
+                      <div class="flex justify-between w-2/3">
+                        <p class="text-blue-600">Progreso</p>
+                        <p class="text-purple-500">{{ project.progress }}%</p>
+                      </div>
+                      <mat-progress-bar mode="determinate" value="{{ project.progress }}"></mat-progress-bar>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+                <ng-template #completed>
+                  <mat-card>
+                    <mat-card-header>
+                      <mat-card-title>
+                        <a>
+                          <p class="text-black text-xs font-bold hover:bg-gray-200">{{ project.name }}</p>
+                        </a>
+                      </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                      <div>
+                        <p class="text-green-500 text-center text-xxs font-bold">COMPLETADO!!</p>
+                      </div>
+                    </mat-card-content>
+                  </mat-card>
+                </ng-template>
+              </ng-template>
+            </ng-container>
+          </mat-card-content>
+        </mat-card>
+        <ng-template #noProjects>
+          <div *ngFor="let empty of emptyProjects">
+            <mat-card class="gray-card">
+              <mat-card-header>
+                <mat-card-title>
+                  <p class="text-gray-500">Proyecto vacio</p>
+                </mat-card-title>
+              </mat-card-header>
+            </mat-card>
+          </div>
+        </ng-template>
+
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+-->

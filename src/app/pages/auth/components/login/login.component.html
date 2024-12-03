@@ -1,0 +1,40 @@
+<div class="login-container">
+  <div class="login-image-container">
+    <div class="login-background-content">
+      <img src="./assets/auth-images/fondo.png" alt="image" class="login-background">
+      <div class="login-fromzero-logo">
+        <img src="./assets/auth-images/logo.png" alt="Logo">
+      </div>
+    </div>
+  </div>
+  <div class="login-form-container">
+    <div class="login-form-content">
+      <form [formGroup]="loginForm" style="display: block; text-align: center">
+
+        <div>
+          <mat-form-field class="example-full-width">
+            <mat-label>Correo</mat-label>
+            <input matInput formControlName="email" placeholder="Ingresar Correo">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field class="example-full-width">
+            <mat-label>Contraseña</mat-label>
+            <input matInput type="password" formControlName="password" placeholder="Ingresar Contraseña">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <a mat-flat-button color="primary" (click)="validateLogin()"
+             tabIndex="0" (keydown.enter)="validateLogin()" >Iniciar sesión</a>
+        </div>
+
+        <div>
+          <a mat-button routerLink="/register" >Crear Cuenta</a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

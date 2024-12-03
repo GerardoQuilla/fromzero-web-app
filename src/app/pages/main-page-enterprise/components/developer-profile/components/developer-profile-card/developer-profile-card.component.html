@@ -1,0 +1,80 @@
+<div class="bg-white h-full flex flex-col justify-center">
+
+  <div class="flex flex-row justify-around items-center">
+    <h1>{{ perfilDeveloper?.firstName }} {{ perfilDeveloper?.lastName }}</h1>
+    <img mat-card-image [src]="perfilDeveloper?.profileImgUrl" alt="Perfil de usuario" class="w-12 h-12">
+    <mat-icon (click)="goToMessage()" class="text-purple-500 cursor-pointer hover:bg-gray-200">message</mat-icon>
+  </div>
+
+  <div class="flex justify-center">
+    <hr class="w-5/6 text-gray-500">
+  </div>
+
+  <div class="dev-profile-items-container">
+
+    <div class="w-5/6 ml-auto mr-auto">
+      <div class="flex flex-col">
+        <h2 class="text-gray-500 font-bold">Resumen</h2>
+        <h3>{{ perfilDeveloper?.description }}</h3>
+      </div>
+
+
+      <div class="flex justify-center">
+        <hr class="w-5/6 text-gray-500">
+      </div>
+
+
+      <div class="profile-item flex flex-row justify-between items-center">
+        <h2 class="text-gray-500 font-bold">País</h2>
+        <h3>{{ perfilDeveloper?.country }}</h3>
+      </div>
+
+
+      <div class="flex justify-center">
+        <hr class="w-5/6 text-gray-500">
+      </div>
+
+
+      <div class="profile-item flex flex-row justify-between items-center">
+        <h2 class="text-gray-500 font-bold">Telefono</h2>
+        <h3>{{ perfilDeveloper?.phone }}</h3>
+      </div>
+
+
+      <div class="flex justify-center">
+        <hr class="w-5/6 text-gray-500">
+      </div>
+
+
+      <div class="profile-item flex flex-row justify-between items-center">
+        <h2 class="text-gray-500 font-bold">Correo</h2>
+        <h3>{{ perfilDeveloper?.email }}</h3>
+      </div>
+
+
+      <div class="flex justify-center">
+        <hr class="w-5/6 text-gray-500">
+      </div>
+
+
+      <div class="profile-item flex flex-row justify-between items-center">
+        <h2 class="text-gray-500 font-bold">Proyectos Completados</h2>
+        <h3><strong>{{ perfilDeveloper?.completedProjects }}</strong></h3>
+      </div>
+
+
+      <div class="flex justify-center">
+        <hr class="w-5/6 text-gray-500">
+      </div>
+
+
+      <div class="profile-item flex flex-row justify-between items-center">
+        <h2 class="text-gray-500 font-bold">Especialidades</h2>
+        <h3>{{ perfilDeveloper?.specialties }}</h3>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

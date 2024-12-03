@@ -1,0 +1,38 @@
+<mat-dialog-content>
+  <h2 mat-dialog-title>Entregable {{ data.deliverableNumber }}</h2>
+  <div class="dialog-input-section">
+    <div class="dialog-input-section-1">
+      <div>
+        <mat-form-field>
+          <mat-label>Nombre del entregable</mat-label>
+          <input matInput [formControl]="data.delv_name">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Descripcion</mat-label>
+          <textarea matInput [formControl]="data.delv_description"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="dialog-input-section-2">
+      <mat-form-field>
+        <mat-label>Fecha de expiracion</mat-label>
+        <input matInput [matDatepicker]="picker" [formControl]="data.delv_exp_date" >
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="dialog-buttons">
+    <div>
+      <button mat-flat-button color="warn" (click)="closeDialog()">Cerrar</button>
+    </div>
+    <div>
+      <button mat-flat-button color="primary" [mat-dialog-close]="data">Confirmar</button>
+    </div>
+  </div>
+</mat-dialog-actions>

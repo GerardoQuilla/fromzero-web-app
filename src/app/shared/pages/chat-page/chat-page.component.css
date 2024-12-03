@@ -1,0 +1,124 @@
+.chat-page-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 600px;
+  margin: 0 12px;
+}
+
+.chats-container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.chats-container-sm {
+  align-content: center;
+  width: 300px;
+}
+
+/* Cuando no se abre el chat */
+
+.no-chat-opened-chats-container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.no-chat-opened-chats-container-sm {
+  align-content: center;
+  width: 300px;
+}
+/*----------------------------*/
+
+.current-chat {
+  background-color: white;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+  border: 2px solid;
+}
+
+.input-message-container {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+
+.send-message {
+  display: flex;
+  align-items: center;
+}
+
+.messages-empty {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.current-chat, .chats-container {
+  margin: 0 10px;
+}
+
+@media screen and (max-width: 400px) {
+  .chat-page-container {
+    flex-direction: column;
+  }
+
+  .current-chat, .chats-container, .chats-container-sm {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .current-chat {
+    height: 400px;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .chats-container {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .chats-container-sm {
+    flex-direction: row;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    justify-content: space-around;
+  }
+
+  .no-chat-opened-chats-container {
+    align-items: center;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .no-chat-opened-chats-container-sm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .no-chat-opened-chats-container > app-chat,
+  .no-chat-opened-chats-container-sm > app-chat{
+    margin: 10px 0;
+  }
+
+}

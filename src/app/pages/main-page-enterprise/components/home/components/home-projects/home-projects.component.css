@@ -1,0 +1,6 @@
+.projects-container{
+  height: 500px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-right: 20px;
+}

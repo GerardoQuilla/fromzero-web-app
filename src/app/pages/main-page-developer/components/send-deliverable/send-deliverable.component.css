@@ -1,0 +1,15 @@
+.files-to-send{
+  height: 50px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-right: 5px;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 630px) {
+  .send-deliverable-content{
+    height: 280px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}

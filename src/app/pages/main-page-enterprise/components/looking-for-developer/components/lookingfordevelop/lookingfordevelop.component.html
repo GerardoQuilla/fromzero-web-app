@@ -1,0 +1,27 @@
+<div class="w-full h-full flex justify-center">
+  <ul style="margin: 0 40px; width: 1200px">
+    <div class="developers-list flex flex-col">
+      @for (developer of developers; track developer.id) {
+        <li style="margin: 20px 0">
+          <mat-card>
+
+            <mat-card-header style="display: block">
+              <mat-card-title (click)="redirectToProfile(developer.id)" class="cursor-pointer hover:bg-gray-200">
+                <h1 style="text-align: center">{{ developer.firstName }} {{ developer.lastName }}</h1>
+              </mat-card-title>
+            </mat-card-header>
+            <div class="flex justify-center">
+              <img mat-card-sm-image [src]="developer.profileImgUrl" [alt]="developer.firstName"/>
+            </div>
+            <mat-card-content>
+              <h2 style="text-align: center">
+                {{ developer.description }}
+              </h2>
+            </mat-card-content>
+
+          </mat-card>
+        </li>
+      }
+    </div>
+  </ul>
+</div>
