@@ -12,16 +12,16 @@ export class ProjectsApiService extends BaseService{
     super();
     this.url =`${this.basePath}/projects`;
   }
-  getAllProjectsByEnterpriseUserId(id:number){
+  getAllProjectsByEnterpriseUserId(id:string){
     return this.http.get<IProject[]>(`${this.url}/company/${id}`)
   }
-  getProjectsByDeveloperUserId(id:number){
+  getProjectsByDeveloperUserId(id:string){
     return this.http.get<IProject[]>(`${this.url}/developer/${id}`);
   }
   postProject(project:any){
     return this.http.post<IProject>(`${this.url}`,project)
   }
-  assignDeveloperToProject(projectId:number,developerUserId:number,accept:boolean){
+  assignDeveloperToProject(projectId:number,developerUserId:string,accept:boolean){
     return this.http.patch(`${this.url}/${projectId}/set-developer`,{developerId:developerUserId,accepted:accept})
   }
   getProjectsByState(state:string){
@@ -31,7 +31,7 @@ export class ProjectsApiService extends BaseService{
   getProjectById(id:number){
     return this.http.get<IProject>(`${this.url}/${id}`);
   }
-  addCandidateToProject(projectId:number,developerUserId:number){
+  addCandidateToProject(projectId:number,developerUserId:string){
     return this.http.patch(`${this.url}/${projectId}/add-candidate`,{developerId:developerUserId})
   }
 }

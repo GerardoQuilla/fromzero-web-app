@@ -21,12 +21,12 @@ import {
   MatTable
 } from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
-/*import { MessageComponent } from './components/message/message.component';
-import { InboxComponent } from './pages/inbox/components/inbox/inbox.component';*/
 import {MatDialogModule} from "@angular/material/dialog";
 import { ChatPageComponent } from './pages/chat-page/chat-page.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { MessageComponent } from './components/message/message.component';
+import {MatMenuModule} from "@angular/material/menu";
+import { CheckProfileComponent } from './components/check-profile/check-profile.component';
 
 @NgModule({
   declarations: [
@@ -34,8 +34,7 @@ import { MessageComponent } from './components/message/message.component';
     ChatPageComponent,
     ChatComponent,
     MessageComponent,
-    /*MessageComponent,
-    InboxComponent*/
+    CheckProfileComponent,
   ],
   imports: [
     CommonModule,
@@ -59,7 +58,8 @@ import { MessageComponent } from './components/message/message.component';
     MatRowDef,
     MatRow,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatMenuModule
   ],
   exports:[
     ProjectListComponent

@@ -16,7 +16,8 @@
       <div class="flex flex-row justify-around p-2.5 flex-wrap">
         <h2 style="margin: 0">{{ currentContactName }}</h2>
         <div>
-          <img mat-card-image [src]="currentContactImage" alt="contact-image" class="w-9 h-auto">
+          <app-check-profile [currentContactImage]="currentContactImage"
+                             [currentContactProfileId]="currentContactProfileId"/>
         </div>
       </div>
       @if (messages.length !== 0) {

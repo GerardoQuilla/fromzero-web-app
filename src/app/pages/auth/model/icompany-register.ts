@@ -1,5 +1,5 @@
 export interface ICompanyRegister {
-  mail: string;
+  email: string;
   password: string;
   companyName: string;
 }

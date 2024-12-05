@@ -8,6 +8,7 @@ export interface IDeveloperProfileTemp {
   country:string,
   phone:string,
   completedProjects:number,
+  averageRating: number,
   specialties:string,
   profileImgUrl:string,
   /*user:{

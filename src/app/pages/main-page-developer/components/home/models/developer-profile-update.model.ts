@@ -1,5 +1,5 @@
 export interface IDeveloperProfileUpdate {
-  id: number;
+  //id: number;
   description: string;
   country: string;
   phone: string;

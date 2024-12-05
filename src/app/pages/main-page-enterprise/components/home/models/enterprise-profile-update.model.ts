@@ -1,5 +1,5 @@
 export interface IEnterpriseProfileUpdate {
-  id: number;
+  //id: number;
   description: string;
   country: string;
   ruc: string

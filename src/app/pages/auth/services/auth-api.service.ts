@@ -22,7 +22,7 @@ export class AuthApiService extends BaseService{
   createEnterpriseUser(mail: string, password: string, enterpriseName: string) {
 
     const user: ICompanyRegister={
-      mail:mail,
+      email:mail,
       password:password,
       companyName:enterpriseName
     }
@@ -46,9 +46,9 @@ export class AuthApiService extends BaseService{
     return this._http.post<IUserLogin>(this.authUrl + 'sign-in', signInResource);
   }
 
-  getUserByEmail(email:string){
+  /*getUserByEmail(email:string){
     return this._http.get(this.usersUrl+'email/'+email);
-  }
+  }*/
 
   getUserById(id:number){
     return this._http.get<IUser>(this.usersUrl+`${id}`)

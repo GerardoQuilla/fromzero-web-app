@@ -20,9 +20,9 @@ export class DeveloperProfilePageComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    let id :number
+    let id :string
     this.route.params.subscribe(params=>{
-      id = +params['developerId']
+      id = params['developerId']
       this._profilesService.getDeveloperProfileById(id).subscribe(developer => {
         this.developerProfile=developer;
       })

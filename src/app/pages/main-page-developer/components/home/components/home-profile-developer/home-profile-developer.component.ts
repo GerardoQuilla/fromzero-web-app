@@ -39,7 +39,8 @@ export class HomeProfileDeveloperComponent {
   listPayments(){
     const dialogRef=this.dialogRef.open(ListPaymentsDialogComponent,{
       width: '600px',
-      data: this.perfilUsuario.id
+      //data: this.perfilUsuario.id
+      data: this.perfilUsuario.ProfileId
     });
   }
 

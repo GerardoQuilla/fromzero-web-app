@@ -1,0 +1,5 @@
+<img mat-card-image [src]="currentContactImage" alt="contact-image" class="w-9 h-auto"
+     [matMenuTriggerFor]="menu">
+<mat-menu #menu="matMenu">
+  <h3 mat-menu-item (click)="redirectToProfile()">Ver perfil</h3>
+</mat-menu>

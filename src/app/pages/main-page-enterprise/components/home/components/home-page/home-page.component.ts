@@ -19,12 +19,12 @@ export class HomePageComponent  implements OnInit {
   }
 
   ngOnInit(): void {
-    const userId = localStorage.getItem('id');
-    if (userId) {
-      this._profilesService.getEnterpriseProfileById(+userId).subscribe(profile => {
+    const profileId = localStorage.getItem('recordId');
+    if (profileId) {
+      this._profilesService.getEnterpriseProfileById(profileId).subscribe(profile => {
         this.perfilUsuario = profile;
       });
-      this._projectsService.getAllProjectsByEnterpriseUserId(+userId).subscribe(projects=>{
+      this._projectsService.getAllProjectsByEnterpriseUserId(profileId).subscribe(projects=>{
         this.userProjects=projects;
       })
     }

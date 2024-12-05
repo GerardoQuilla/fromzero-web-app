@@ -45,18 +45,21 @@ export class DeliverablesComponent implements OnInit {
 
       })
 
-      this._paymentService.getProjectPayment(this.projectId).subscribe({
-        next: response => {
-          if (response.status==="PENDIENTE"){
-            this.isPaymentCompleted=false;
-          }else if(response.status==="COMPLETADO"){
-            this.isPaymentCompleted=true;
+
+
+        this._paymentService.getProjectPayment(this.projectId).subscribe({
+          next: response => {
+            if (response.status === "PENDIENTE") {
+              this.isPaymentCompleted = false;
+            } else if (response.status === "COMPLETADO") {
+              this.isPaymentCompleted = true;
+            }
+          },
+          error: err => {
+            console.error("ERROR")
           }
-        },
-        error: err => {
-          console.error("ERROR")
-        }
-      })
+        })
+
 
     })
   }

@@ -14,15 +14,12 @@ export class ApplyConfirmationComponent {
   constructor(public dialogRef: MatDialogRef<ApplyConfirmationComponent>,
               private projectsService:ProjectsApiService,
               @Inject(MAT_DIALOG_DATA)public data:{
-                developerUserId:number,
+                developerUserId:string,
                 projectId:number
               }) {}
 
   apply(){
-    /*this.projectsService.addCandidateToProject(this.data.projectId,this.data.developerUserId).subscribe(response=>{
-      console.log(response)
-      this.dialogRef.close();
-    })*/
+
     this.projectsService.addCandidateToProject(this.data.projectId,this.data.developerUserId).subscribe({
       next: result => {
         this._snackBar.open("Postulación enviada con éxito","Close",{

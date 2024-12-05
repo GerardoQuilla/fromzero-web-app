@@ -3,6 +3,7 @@ import {ChatApiService} from "../../services/chat/chat-api.service";
 import {IChat} from "../../models/ichat";
 import {IMessage} from "../../models/imessage";
 import {MessagesApiService} from "../../services/messages/messages-api.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-chat-page',
@@ -18,12 +19,14 @@ export class ChatPageComponent implements OnInit {
 
   currentContactName = ""
   currentContactImage = ""
+  currentContactProfileId = ""
 
   userRecordId = ""
 
   messageContent = ""
 
   constructor(
+    private router:Router,
     private _messageService: MessagesApiService,
     private _chatService: ChatApiService) {
   }
@@ -69,6 +72,7 @@ export class ChatPageComponent implements OnInit {
   handle(contact: any) {
     this.currentContactName = contact.contactName;
     this.currentContactImage = contact.contactImage;
+    this.currentContactProfileId=contact.contactProfileId;
   }
 
   sendMessage(content: string) {
@@ -91,6 +95,20 @@ export class ChatPageComponent implements OnInit {
       }
     })
 
+  }
+
+  redirectToProfile(){
+    if(this.currentContactProfileId!==""){
+      let userType = localStorage.getItem('accountType');
+      switch (userType) {
+        case 'E':
+          this.router.navigate(['/app/main/developer-profile', `${this.currentContactProfileId}`]);
+          break;
+        case 'D':
+          this.router.navigate(['/app-developer/main/enterprise-profile', `${this.currentContactProfileId}`])
+          break;
+      }
+    }
   }
 
 }

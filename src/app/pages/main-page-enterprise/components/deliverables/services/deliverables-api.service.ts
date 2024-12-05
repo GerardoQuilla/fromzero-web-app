@@ -27,10 +27,6 @@ export class DeliverablesApiService extends BaseService{
     return this.http.get<IDeliverable>(`${this.url}/${deliverableId}`);
   }
 
-  /*sendDeliverable(deliverableId:number,developerMessage:string){
-    return this.http.patch(`${this.url}/${deliverableId}/send`,{developerMessage});
-  }*/
-
   sendDeliverable(deliverableId:number,developerMessage:string, files:File[]){
     const formData = new FormData();
     formData.append('developerMessage',developerMessage);

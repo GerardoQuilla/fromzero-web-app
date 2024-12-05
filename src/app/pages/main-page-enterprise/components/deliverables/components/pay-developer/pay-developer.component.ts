@@ -1,6 +1,7 @@
-import {Component, Inject} from '@angular/core';
+import {Component, inject, Inject} from '@angular/core';
 import {PaymentService} from "../../../../../../core/services/payments/payment.service";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {FormBuilder, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-pay-developer',
@@ -8,9 +9,23 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
   styleUrl: './pay-developer.component.css'
 })
 export class PayDeveloperComponent {
-  cardNumber:string=""
+  private _formBuilder = inject(FormBuilder)
+
+  cardFormGroup=this._formBuilder.group({
+    cardNumber:['', Validators.required],
+    expirationDate:['', Validators.required],
+    cvv:['', Validators.required]
+  })
+
+  ratingFormGroup = this._formBuilder.group({
+    developerRating:['', Validators.required],
+  })
+
+  isLinear = true;
+  /*cardNumber:string=""
   expirationDate:string="yyyy-MM"
   cvv:string=""
+  developerRating:number=0*/
   projectId:number=0
 
   constructor(
@@ -21,12 +36,24 @@ export class PayDeveloperComponent {
   }
 
   payDeveloper(){
-    if (this.cardNumber!=="" && this.expirationDate!=="" && this.cvv!==""){
+    //if (this.cardNumber!=="" && this.expirationDate!=="" && this.cvv!==""){
+    if (this.cardFormGroup.valid){
+
+      let cardNumber= this.cardFormGroup.get('cardNumber')?.value
+      let expirationDate = this.cardFormGroup.get('expirationDate')?.value
+      let cvv = this.cardFormGroup.get('cvv')?.value
+      let developerRating = this.ratingFormGroup.get('developerRating')?.value
+
       this.paymentService.completePayment(
         this.projectId,
-        this.cardNumber,
+        /*this.cardNumber,
         this.expirationDate,
-        this.cvv
+        this.cvv,
+        this.developerRating*/
+        cardNumber!,
+        expirationDate!,
+        cvv!,
+        +developerRating!
       ).subscribe({
         next: res=>{
           this.dialogRef.close(true);
@@ -35,11 +62,18 @@ export class PayDeveloperComponent {
           console.error("ERROR")
         }
       })
+      /*console.log(+developerRating!)
+      console.log(typeof +developerRating!)*/
+      this.dialogRef.close(true);
     }else console.error("Datos no validos")
   }
 
   closeDialog(){
     this.dialogRef.close(false);
+  }
+
+  formatLabel(value:number){
+    return `${value}`
   }
 
 }

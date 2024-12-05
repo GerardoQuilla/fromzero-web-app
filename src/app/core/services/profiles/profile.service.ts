@@ -21,20 +21,20 @@ export class ProfileService extends BaseService{
     return this._http.get<IDeveloperProfileTemp[]>(this.url+'developers',this.httpOptions)
   }
 
-  getEnterpriseProfileById(id: any): Observable<ICompanyProfile> {
+  getEnterpriseProfileById(id: string): Observable<ICompanyProfile> {
     return this._http.get<ICompanyProfile>(this.url+'company/'+id,this.httpOptions);
   }
 
-  getDeveloperProfileById(id: any): Observable<IDeveloperProfileTemp> {
+  getDeveloperProfileById(id: string): Observable<IDeveloperProfileTemp> {
     return this._http.get<IDeveloperProfileTemp>(this.url + 'developer/' + id,this.httpOptions);
   }
 
-  updateDeveloperProfile(id: number, updateDeveloper: any): Observable<any>{
+  updateDeveloperProfile(id: string, updateDeveloper: any): Observable<any>{
     const url = this.url + 'developer/' + id;
     return this._http.put(url, updateDeveloper,this.httpOptions);
   }
 
-  updateEnterpriseProfile(id: number, updateEnterprise: any): Observable<any>{
+  updateEnterpriseProfile(id: string, updateEnterprise: any): Observable<any>{
     const url = this.url + 'company/' + id;
     return this._http.put(url, updateEnterprise,this.httpOptions);
   }

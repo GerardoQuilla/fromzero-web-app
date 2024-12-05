@@ -13,10 +13,13 @@ export class SidenavEnterpriseComponent implements OnInit{
   constructor(private _profileService:ProfileService) {
   }
   ngOnInit(){
-    const userId = Number(localStorage.getItem('id'));
-    this._profileService.getEnterpriseProfileById(userId).subscribe(profile => {
-      this.user=profile;
-    })
+    const profileId = localStorage.getItem('recordId');
+
+    if(profileId){
+      this._profileService.getEnterpriseProfileById(profileId).subscribe(profile => {
+        this.user = profile;
+      })
+    }
   }
 
   toggleExpand(){

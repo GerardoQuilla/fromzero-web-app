@@ -12,6 +12,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 })
 export class EditProfileDeveloperDialogComponent {
   private _snackBar = inject(MatSnackBar);
+
   constructor(
     public dialogRef: MatDialogRef<EditProfileDeveloperDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IDeveloperProfileTemp,
@@ -23,12 +24,13 @@ export class EditProfileDeveloperDialogComponent {
   }
 
   updateProfile(): void {
-    let idDeveloper: number = Number(localStorage.getItem('id'));
+    //let idDeveloper = localStorage.getItem('recordId');
+    let idDeveloper = this.data.ProfileId;
     let originalData = {...this.data};
-    this.data.id = idDeveloper;
+    //this.data.id = idDeveloper;
 
     let updateData: IDeveloperProfileUpdate = {
-      id: this.data.id,
+      //id: this.data.id,
       description: this.data.description,
       country: this.data.country,
       phone: this.data.phone,
@@ -38,17 +40,17 @@ export class EditProfileDeveloperDialogComponent {
 
     this._profileService.updateDeveloperProfile(idDeveloper, updateData).subscribe({
       next: (response) => {
-        //console.log(response);
-        this._snackBar.open("Perfil actualizado","Close",{
+        this._snackBar.open("Perfil actualizado", "Close", {
           duration: 3000,
         })
         this.dialogRef.close();
       }, error: () => {
-        this._snackBar.open("Error","Close",{
+        this._snackBar.open("Error", "Close", {
           duration: 2000,
         })
         this.data = originalData;
       }
     })
+
   }
 }

@@ -25,12 +25,14 @@ export class ChatComponent implements OnInit {
     if (this.currentUser==='E'){
       this.currentContact.emit({
         contactName:this.chat.developer.firstName+" "+this.chat.developer.lastName,
-        contactImage:this.chat.developer.profileImgUrl
+        contactImage:this.chat.developer.profileImgUrl,
+        contactProfileId:this.chat.developer.id
       })
     }else if (this.currentUser==='D'){
       this.currentContact.emit({
         contactName:this.chat.company.companyName,
-        contactImage:this.chat.company.profileImgUrl
+        contactImage:this.chat.company.profileImgUrl,
+        contactProfileId:this.chat.company.id
       })
     }
   }

@@ -13,10 +13,12 @@ export class SidenavDeveloperComponent {
     private _profileService:ProfileService) {
   }
   ngOnInit(){
-    const userId = Number(localStorage.getItem('id'));
-    this._profileService.getDeveloperProfileById(userId).subscribe(profile => {
-      this.user=profile;
-    })
+    const profileId = localStorage.getItem('recordId');
+    if(profileId){
+      this._profileService.getDeveloperProfileById(profileId).subscribe(profile => {
+        this.user = profile;
+      })
+    }
   }
   logout(): void {
     localStorage.removeItem('token')

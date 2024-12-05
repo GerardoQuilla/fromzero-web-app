@@ -17,9 +17,10 @@ export class ProjectProfilePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let enterpriseId: number
+    let enterpriseId: string
     this.route.params.subscribe(params => {
-      enterpriseId = +params['enterpriseId'];
+      //enterpriseId = +params['enterpriseId'];
+      enterpriseId = params['enterpriseId'];
       this._profileService.getEnterpriseProfileById(enterpriseId).subscribe(enterprise => {
         this.enterpriseProfile = enterprise;
       })

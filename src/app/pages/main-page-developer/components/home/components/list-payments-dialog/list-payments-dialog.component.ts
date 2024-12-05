@@ -15,7 +15,7 @@ export class ListPaymentsDialogComponent implements OnInit {
 
   constructor(
     public dialogRef:MatDialogRef<ListPaymentsDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: number,
+    @Inject(MAT_DIALOG_DATA) public data: string,
     private _paymentService:PaymentService
   ) {
   }

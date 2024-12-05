@@ -13,6 +13,7 @@ export class ProjectListComponent implements OnInit{
   projects!: IProject[];
   filteredProjects: IProject[]=[];
   companyNameFilter:string=""
+  userType:any
 
   constructor(
     private _projectService: ProjectsApiService) {
@@ -33,6 +34,7 @@ export class ProjectListComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.userType=localStorage.getItem('accountType');
     this._projectService.getProjectsByState("COMPLETADO").subscribe(response => {
       this.projects=response
       this.filteredProjects=this.projects

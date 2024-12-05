@@ -48,6 +48,8 @@ import { DeveloperProfilePageComponent } from './components/developer-profile/co
 import {SharedModule} from "../../shared/shared.module";
 import { PayDeveloperComponent } from './components/deliverables/components/pay-developer/pay-developer.component';
 import { PaymentDetailsComponent } from './components/deliverables/components/payment-details/payment-details.component';
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatSliderModule} from "@angular/material/slider";
 
 @NgModule({
   declarations: [
@@ -92,7 +94,9 @@ import { PaymentDetailsComponent } from './components/deliverables/components/pa
         MatPaginatorModule,
         HttpClientModule,
         SharedModule,
-        NgOptimizedImage
+        NgOptimizedImage,
+        MatStepperModule,
+        MatSliderModule
     ]
 })
 export class MainPageEnterpriseModule { }

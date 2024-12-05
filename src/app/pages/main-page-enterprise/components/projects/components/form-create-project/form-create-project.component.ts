@@ -4,6 +4,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ConfirmationDialogComponent} from "../confirmation-dialog/confirmation-dialog.component";
 import {ProjectsApiService} from "../../../home/services/projects-api.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {Router} from "@angular/router";
 
 interface IMethodology{
   name: string;
@@ -18,7 +19,7 @@ interface IMethodology{
 export class FormCreateProjectComponent implements OnInit{
   private _snackBar = inject(MatSnackBar);
 
-  userId:number;
+  userId:any;
   programmingLanguagesList=[
     {id:1,name:"Javascript"},
     {id:2,name:"Typescript"},
@@ -93,8 +94,8 @@ export class FormCreateProjectComponent implements OnInit{
     this.selectedFrameworksAux.splice(index,1);
   }
 
-  constructor(private fb: FormBuilder, public dialog: MatDialog,private projectsService:ProjectsApiService) {
-    this.userId = Number(localStorage.getItem('id'));
+  constructor(private router: Router,private fb: FormBuilder, public dialog: MatDialog,private projectsService:ProjectsApiService) {
+    this.userId = localStorage.getItem('recordId');
     this.form = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
@@ -138,14 +139,13 @@ export class FormCreateProjectComponent implements OnInit{
             currency:this.form.get('currency')?.value,
             methodologies:this.methodologiesList
           }
-          /*this.projectsService.postProject(project).subscribe(response=>{
-            console.log(response)
-          })*/
+
           this.projectsService.postProject(project).subscribe({
             next: result => {
               this._snackBar.open("Proyecto publicado","Close",{
                 duration: 3000,
               })
+              this.router.navigate(["/app/main/home"])
             },
             error: error => {
               this._snackBar.open("Error","Close",{

@@ -12,13 +12,13 @@ export class PaymentService extends BaseService{
     super();
     this.url=`${this.basePath}/payments`;
   }
-  getPaymentsByDeveloper(developerId:number){
+  getPaymentsByDeveloper(developerId:string){
     return this.http.get<IPayment[]>(`${this.url}/developer/${developerId}`);
   }
   getProjectPayment(projectId:number){
     return this.http.get<IPayment>(`${this.url}/project/${projectId}`);
   }
-  completePayment(projectId:number,cardNumber:string,expirationDate:string,cvv:string){
-    return this.http.patch(`${this.url}/project/${projectId}`,{cardNumber,expirationDate,cvv})
+  completePayment(projectId:number,cardNumber:string,expirationDate:string,cvv:string, rating: number){
+    return this.http.patch(`${this.url}/project/${projectId}`,{cardNumber,expirationDate,cvv,rating})
   }
 }
