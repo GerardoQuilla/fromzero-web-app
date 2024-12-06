@@ -1,6 +1,8 @@
 export interface ICandidate {
   id:number,
-  profileId:string,
+  profileId:{
+    RecordId:string
+  },
   firstName:string,
   lastName:string,
   description:string,
