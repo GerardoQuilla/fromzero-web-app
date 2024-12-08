@@ -1,7 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {AuthApiService} from "../../services/auth-api.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,8 @@ import {Router} from "@angular/router";
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-  accountCreated = 0;
+  private _snackBar = inject(MatSnackBar);
+  //accountCreated = 0;
 
   registerForm = new FormGroup({
     email: new FormControl(''),
@@ -43,10 +45,14 @@ export class RegisterComponent {
         if (email !== "" && password !== "" && enterpriseName !== "") {
           this.authService.createEnterpriseUser(email, password, enterpriseName).subscribe({
             next: () => {
-              this.accountCreated = 1;
+              this._snackBar.open("Usuario empresa creado","Close",{
+                duration: 3000,
+              })
             },
-            error: () => {
-              this.accountCreated = 2
+            error: (err) => {
+              this._snackBar.open(`${err.error.message}`,"Close",{
+                duration: 3000,
+              })
             }
           })
         } else {
@@ -60,10 +66,14 @@ export class RegisterComponent {
         if (email !== "" && password !== "" && firstName !== "" && lastName !== "") {
           this.authService.createDeveloperUser(email, password, firstName, lastName).subscribe({
             next: () => {
-              this.accountCreated = 1;
+              this._snackBar.open("Usuario desarrollador creado","Close",{
+                duration: 3000,
+              })
             },
-            error: () => {
-              this.accountCreated = 2
+            error: (err) => {
+              this._snackBar.open(`${err.error.message}`,"Close",{
+                duration: 3000,
+              })
             }
           })
         } else {

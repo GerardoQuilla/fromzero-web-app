@@ -1,8 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthApiService} from "../../services/auth-api.service";
 import {ProfileService} from "../../../../core/services/profiles/profile.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,7 @@ import {ProfileService} from "../../../../core/services/profiles/profile.service
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  private _snackBar = inject(MatSnackBar);
   constructor(
     private router: Router,
     private _authService: AuthApiService,
@@ -67,7 +69,9 @@ export class LoginComponent {
             })
           },
           error: (err) => {
-            console.error('Invalid username or password');
+            this._snackBar.open(`${err.error.message}`,"Close",{
+              duration: 3000,
+            })
           }
         })
 

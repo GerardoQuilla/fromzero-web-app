@@ -18,9 +18,9 @@ export class PayDeveloperComponent {
   })
 
   ratingFormGroup = this._formBuilder.group({
-    developerRating:['', Validators.required],
+    developerRating:['0', Validators.required],
   })
-
+  currentRating='0'
   isLinear = true;
   /*cardNumber:string=""
   expirationDate:string="yyyy-MM"
@@ -76,4 +76,7 @@ export class PayDeveloperComponent {
     return `${value}`
   }
 
+  onRatingChange(event: any): void {
+    this.currentRating=String(this.ratingFormGroup.get('developerRating')?.value)
+  }
 }

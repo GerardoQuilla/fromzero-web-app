@@ -119,17 +119,38 @@
             </mat-checkbox>
             @if (!processCheckbox.checked) {
               <div class="flex flex-wrap justify-around">
-                <div class="flex flex-col justify-center">
-                  <mat-form-field>
-                    <input matInput placeholder="Titulo del proceso"
-                           formControlName="methodologyName">
-                  </mat-form-field>
-                  <mat-form-field>
-                    <textarea matInput placeholder="Descripcion del proceso"
-                          formControlName="methodologyDescription"></textarea>
-                  </mat-form-field>
+                <!--<div class="flex flex-col justify-center">-->
+                <div [ngStyle]="methodologiesContainerStyle()">
+                  @if(!checkCurrentMethodologies){
+                    <mat-form-field>
+                      <input matInput placeholder="Titulo del proceso"
+                             formControlName="methodologyName">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <textarea matInput placeholder="Descripcion del proceso"
+                            formControlName="methodologyDescription"></textarea>
+                    </mat-form-field>
+                  } @else {
+                    <div style="margin-top: 8px;height: 90px; width: 100%; overflow-x: hidden;overflow-y: auto">
+                      @for (deliverable of methodologiesList; track $index){
+                        <p><strong>
+                          {{deliverable.name}}
+                        </strong></p>
+                        <p style="white-space: pre-line">{{deliverable.description}}</p>
+                        <br>
+                      }
+                    </div>
+                  }
                 </div>
-                <div class="content-center">
+                <div class="flex flex-col justify-center">
+                  @if (methodologiesList.length!==0){
+                    <button mat-stroked-button type="button"
+                            (click)="checkCurrentMethodologies=!checkCurrentMethodologies">
+                      @if(checkCurrentMethodologies===false){Ver} @else {
+                        Regresar
+                      }
+                    </button>
+                  }
                   <button mat-flat-button color="primary" type="button"
                           (click)="addingMethodology()" class="rounded-full">
                     +

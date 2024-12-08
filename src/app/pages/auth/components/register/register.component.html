@@ -12,9 +12,12 @@
       <form [formGroup]="registerForm" style="display: block; text-align: center">
 
         <div>
-          <mat-form-field class="example-full-width">
-            <mat-label>Correo Electrónico</mat-label>
-            <input matInput formControlName="email" placeholder="Ingresar Correo">
+          <mat-form-field>
+            <mat-label>Usuario</mat-label>
+            <mat-select formControlName="accountType">
+              <mat-option value="0">Empresa</mat-option>
+              <mat-option value="1">Desarrollador</mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
 
@@ -41,29 +44,16 @@
 
         <div>
           <mat-form-field class="example-full-width">
-            <mat-label>Contraseña</mat-label>
-            <input matInput formControlName="password" type="password" placeholder="Ingresar Contraseña">
+            <mat-label>Correo Electrónico</mat-label>
+            <input matInput formControlName="email" placeholder="Ingresar Correo">
           </mat-form-field>
         </div>
 
         <div>
-          <mat-form-field>
-            <mat-label>Usuario</mat-label>
-            <mat-select formControlName="accountType">
-              <mat-option value="0">Empresa</mat-option>
-              <mat-option value="1">Desarrollador</mat-option>
-            </mat-select>
+          <mat-form-field class="example-full-width">
+            <mat-label>Contraseña</mat-label>
+            <input matInput formControlName="password" type="password" placeholder="Ingresar Contraseña">
           </mat-form-field>
-        </div>
-
-        <div class="flex gap-3" >
-          @if (accountCreated===1){
-            <p class="text-green-500 text-xl">Cuenta creada con éxito.</p>
-            <mat-icon class="text-green-500">check_circle_outline</mat-icon>
-          } @else if (accountCreated===2) {
-            <p class="text-red-500 text-xl">Algo salió mal.</p>
-            <mat-icon class="text-red-500">cancel</mat-icon>
-          }
         </div>
 
         <div>

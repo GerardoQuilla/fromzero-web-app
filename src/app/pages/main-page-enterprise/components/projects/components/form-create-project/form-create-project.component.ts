@@ -69,6 +69,7 @@ export class FormCreateProjectComponent implements OnInit{
   ]
 
   methodologiesList:IMethodology[]=[]
+  checkCurrentMethodologies = false
   // -----------
 
   selectedFrameworksAux:string[]=[]
@@ -186,8 +187,27 @@ export class FormCreateProjectComponent implements OnInit{
       description:this.form.get('methodologyDescription')?.value,
     }
 
+    if(methodology.name==='' || methodology.description===''){
+      console.log("estan vacios")
+      return;
+    }
+
     this.methodologiesList.push(methodology);
     this.form.get('methodologyName')?.setValue('')
     this.form.get('methodologyDescription')?.setValue('')
+  }
+
+  methodologiesContainerStyle(){
+    let currentStyles:any={
+      'display':'flex',
+      'flex-direction':'column',
+      'justify-content':'center',
+    }
+    if(this.checkCurrentMethodologies){
+      currentStyles={
+        'width':'60%'
+      }
+    }
+    return currentStyles
   }
 }
