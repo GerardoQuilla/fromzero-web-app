@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {IDeveloperRegister} from "../model/ideveloper-register";
 import {BaseService} from "../../../core/services/shared/base.service";
 import {IUserLogin} from "../model/iuser-login";
@@ -46,9 +46,17 @@ export class AuthApiService extends BaseService{
     return this._http.post<IUserLogin>(this.authUrl + 'sign-in', signInResource);
   }
 
-  /*getUserByEmail(email:string){
-    return this._http.get(this.usersUrl+'email/'+email);
-  }*/
+  forgotPassword(email:string){
+    return this._http.post<any>(this.authUrl+'forgot-password',{email});
+  }
+
+  resetPassword(newPassword:string,token:string){
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    });
+    return this._http.patch<any>(this.authUrl+'reset-password',{newPassword},{headers});
+  }
 
   getUserById(id:number){
     return this._http.get<IUser>(this.usersUrl+`${id}`)

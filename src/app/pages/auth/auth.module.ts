@@ -10,11 +10,17 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatSelectModule} from "@angular/material/select";
 import {AuthRoutingModule} from "./auth-routing.module";
 import {HttpClientModule, provideHttpClient, withInterceptors} from "@angular/common/http";
+import { AuthLayoutComponent } from './pages/auth-layout/auth-layout.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
+    AuthLayoutComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     CommonModule,
